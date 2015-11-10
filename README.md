@@ -62,3 +62,16 @@ Stage 4
 =======
 
 	Here SCOUSE selects the best-fits that are output in stage 3.
+
+OPTIONAL STAGES
+===============
+
+Unfortunately there is no one-size-fits-all method to selecting a best-fitting
+solution when multiple choices are available (stage 4). SCOUSE uses the Akaike
+Information Criterion, which weights the chisq of a best-fitting solution
+according to the number of free-parameters.
+
+While AIC does a good job of returning the best-fitting solutions, there are
+areas where the best-fitting solutions can be improved. As such the following
+stages are optional but *highly recommended*. Given the level of user
+interaction, this is the most time-consuming part of the routine.
