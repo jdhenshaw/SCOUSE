@@ -8,8 +8,8 @@ About
 =====
 
 SCOUSE is a spectral line fitting algorithm. The current version fits Gaussian
-files to spectral line emission. Please refer to Henshaw+ 2015 for further
-information.
+files to spectral line emission. Please refer to Henshaw et al. 2015
+(submitted) for further information.
 
 Installation
 ============
@@ -30,6 +30,24 @@ http://www.idlcoyote.com/documents/programs.php#COYOTE_LIBRARY_DOWNLOAD
 Markwardt IDL:
 
 http://purl.com/net/mpfit
+
+Terms of use
+============
+
+If you use SCOUSE in the analysis of molecular line data, please cite the paper
+in which it is presented Henshaw et al. 2015 (submitted)
+
+If it is the first time you have used SCOUSE, J. D. Henshaw would appreciate
+being involved in the project to provide assistance where necessary.
+
+However, this is not required and you are free to use these routines as you see
+fit.
+
+Availability
+============
+
+These routines and their possible future updates are available at:
+    https://github.com/jdhenshaw
 
 Information
 ===========
@@ -76,7 +94,7 @@ areas where the best-fitting solutions can be improved. As such the following
 stages are optional but *highly recommended*. Given the level of user
 interaction, this is the most time-consuming part of the routine.
 Depending on the data a user may wish to perform a few iterations of
-Stages 5-7. 
+Stages 5-7.
 
 Stage 5
 =======
