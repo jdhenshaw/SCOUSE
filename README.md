@@ -1,8 +1,7 @@
 # SCOUSE
-================================================================================
+
 Semi-automated multi-COmponent Universal Spectral-line fitting Engine
 Copyright (c) 2015 Jonathan D. Henshaw
-================================================================================
 
 About
 =====
