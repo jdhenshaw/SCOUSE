@@ -75,3 +75,26 @@ While AIC does a good job of returning the best-fitting solutions, there are
 areas where the best-fitting solutions can be improved. As such the following
 stages are optional but *highly recommended*. Given the level of user
 interaction, this is the most time-consuming part of the routine.
+Depending on the data a user may wish to perform a few iterations of
+Stages 5-7. 
+
+Stage 5
+=======
+
+	Checking the fits. Here the user is required to check the best-fitting
+	solutions to the spectra. The user enters the indices of spectra that need to
+	be revisited. One can typically expect to re analyse (stage 6) around 5-10%
+	of the fits. However, this is dependent on the complexity of the spectral
+	line profiles.
+
+Stage 6
+=======
+
+	Re-analysing the identified spectra. In this stage the user is required to
+	either select an alternative solution or re-fit completely the spectra
+	identified in stage 5.
+
+Stage 7
+=======
+
+	SCOUSE then integrates these new solutions into the solution file.
