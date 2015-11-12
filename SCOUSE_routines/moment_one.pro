@@ -23,7 +23,7 @@ datamom = REPLICATE(0.0,N_ELEMENTS(x_axis_map), N_ELEMENTS(y_axis_map), $
 
 ID = WHERE(data GE sigma_cut*rms_approx)
 indices = ARRAY_INDICES(data, ID)
-datamom[indices[0,*],indices[1,*],indices[2,*]]=
+datamom[indices[0,*],indices[1,*],indices[2,*]]=$
                                     data[indices[0,*],indices[1,*],indices[2,*]]
 
 chanwidth = (((MAX(z_axis)-MIN(z_axis))/N_ELEMENTS(z_axis)))

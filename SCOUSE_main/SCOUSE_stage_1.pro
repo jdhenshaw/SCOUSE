@@ -1,4 +1,4 @@
-PRO STAGE_1
+PRO SCOUSE_STAGE_1
 ;------------------------------------------------------------------------------;
 ; SCOUSE - Semi-automated multi-COmponent Universal Spectral-line fitting Engine
 ; Copyright (c) 2015 Jonathan D. Henshaw
@@ -51,20 +51,20 @@ Compile_Opt idl2
 ;------------------------------------------------------------------------------;
 
 datadirectory =  ''
-filename = '' ; The data cube to be analysed
-fitsfile = filename+'.fits'
+filename      = '' ; The data cube to be analysed
+fitsfile      = filename+'.fits'
 
-vlower = -1000.0 ; The upper/lower limit over which to fit the data
-vupper = 1000.0
-xlower  = -1000.0 ; To fit the full range use 1000, -1000.
-xupper = 1000.0
-ylower  = -1000.0 ;
-yupper = 1000.0 ;
-rsaa = 0.0 ; Radius for the spectral averaging areas. Map units.
+vlower     = -1000.0.0 ; The upper/lower limit over which to fit the data
+vupper     = 1000.0
+xlower     = -1000.0 ; To fit the full range use 1000, -1000.
+xupper     = 1000.0
+ylower     = -1000.0 ;
+yupper     = 1000.0 ;
+rsaa       = 0.0 ; Radius for the spectral averaging areas. Map units.
 rms_approx = 0.0 ; Enter an approximate rms value for the data.
-sigma_cut = 3
+sigma_cut  = 3
 
-vunit = 1000.0 ; if FITS header has units of m/s; conv from m/s to km/s
+vunit      = 1000.0 ; if FITS header has units of m/s; conv from m/s to km/s
 
 ;------------------------------------------------------------------------------;
 ; CREATE MAIN OUTPUT DIRECTORY AND SUB-DIRECTORIES
@@ -163,10 +163,8 @@ CLOSE,1
 image = FILE_READ( datadirectory, fitsfile, x_axis=x_axis, y_axis=y_axis, $
                    z_axis=z_axis, HDR_DATA=HDR_DATA ) 
 
-z_axis = z_axis/vunit
-
 data = FILE_PREPARATION( input_file, vunit, image, x_axis, y_axis, z_axis, $
-                         HDR_DATA, data_rms=image_rms, z_axis_rms=z_axis_rms, $
+                         HDR_DATA, image_rms=data_rms, z_axis_rms=z_axis_rms, $
                          HDR_NEW=HDR_NEW )
 ;-----------------------------------------------------------------------------;
 ; BEGIN ANALYSIS

@@ -1,5 +1,5 @@
 FUNCTION file_preparation, input_file, vunit, image, x_axis, y_axis, z_axis, $
-                           HDR_DATA, data_rms = data_rms, $
+                           HDR_DATA, image_rms = image_rms, $
                            z_axis_rms = z_axis_rms, HDR_NEW=HDR_NEW
 ;------------------------------------------------------------------------------;
 ; PROGRAM NAME:
