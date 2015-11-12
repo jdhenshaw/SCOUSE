@@ -196,27 +196,27 @@ WRITEFITS, moment_two_fits, momtwo, HDR_NEW
 ;------------------------------------------------------------------------------;
 ; DEFINE THE COVERAGE
 ;------------------------------------------------------------------------------;
-  nareas = DEF_COVERAGE( momzero, x_axis, y_axis, rsaa, moment_zero_ascii, $
+nareas = DEF_COVERAGE( momzero, x_axis, y_axis, rsaa, moment_zero_ascii, $
                        coverage_ascii )
                        
-  npos = CREATE_COORDFILES( rsaa,coverage_ascii,coordfile,coordfile_coverage,tmp,$
+npos = CREATE_COORDFILES( rsaa,coverage_ascii,coordfile,coordfile_coverage,tmp,$
                           x_axis,y_axis )
                           
-  moment_map = COVERAGE_PLOT( momzero,x_axis,y_axis, rsaa,coverage_ascii,$
+moment_map = COVERAGE_PLOT( momzero,x_axis,y_axis, rsaa,coverage_ascii,$
                             coverage_figure )
-  ;------------------------------------------------------------------------------;
-  ; END PROCESS
-  ;------------------------------------------------------------------------------;
-  PRINT, ''
-  PRINT, 'Number of spectra to fit manually: ', FLOAT(nareas)
-  PRINT, ''
-  PRINT, 'Number of spectra: ', FLOAT(npos)
-  PRINT, ''
-  endtime = (SYSTIME(/second)-starttime)/60.0
-  PRINT, ''
-  PRINT, 'Time taken: ', endtime, ' minutes.'
-  PRINT, ''
-  JOURNAL
+;------------------------------------------------------------------------------;
+; END PROCESS
+;------------------------------------------------------------------------------;
+PRINT, ''
+PRINT, 'Number of spectra to fit manually: ', FLOAT(nareas)
+PRINT, ''
+PRINT, 'Number of spectra: ', FLOAT(npos)
+PRINT, ''
+endtime = (SYSTIME(/second)-starttime)/60.0
+PRINT, ''
+PRINT, 'Time taken: ', endtime, ' minutes.'
+PRINT, ''
+JOURNAL
 
 END
 
