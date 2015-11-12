@@ -1,4 +1,5 @@
 PRO STAGE_1
+;+
 ;------------------------------------------------------------------------------;
 ; SCOUSE - Semi-automated multi-COmponent Universal Spectral-line fitting Engine
 ; Copyright (c) 2015 Jonathan D. Henshaw
@@ -46,6 +47,7 @@ PRO STAGE_1
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
+;-
 ;------------------------------------------------------------------------------;
 Compile_Opt idl2
 ;------------------------------------------------------------------------------;
