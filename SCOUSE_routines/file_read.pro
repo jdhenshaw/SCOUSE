@@ -1,9 +1,6 @@
 FUNCTION FILE_READ, datadirectory, fitsfile, x_axis=x_axis, y_axis=y_axis, $
                     z_axis=z_axis, HDR_DATA = HDR_DATA
 ;------------------------------------------------------------------------------;
-; Copyright (c) 2015 Jonathan D. Henshaw
-; CONTACT: j.d.henshaw@ljmu.ac.uk
-;
 ; PROGRAM NAME:
 ;   FILE READ
 ;   

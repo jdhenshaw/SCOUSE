@@ -1,9 +1,6 @@
 FUNCTION CREATE_COORDFILES, rsaa, coverage_ascii, coordfile, coordfile_coverage, $
                             tmp, x_axis, y_axis
 ;------------------------------------------------------------------------------;
-; Copyright (c) 2015 Jonathan D. Henshaw
-; CONTACT: j.d.henshaw@ljmu.ac.uk
-;
 ; PROGRAM NAME:
 ;   CREATE COORDFILES
 ;

@@ -1,9 +1,6 @@
 FUNCTION MOMENT_TWO, data, x_axis_map, y_axis_map, z_axis, rms_approx, $
                      sigma_cut, ascii_filename, momzero, momone
 ;------------------------------------------------------------------------------;
-; Copyright (c) 2015 Jonathan D. Henshaw
-; CONTACT: j.d.henshaw@ljmu.ac.uk
-;
 ; PROGRAM NAME:
 ;   MOMENT TWO
 ;

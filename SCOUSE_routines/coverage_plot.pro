@@ -1,9 +1,6 @@
 FUNCTION COVERAGE_PLOT, momzero, x_axis, y_axis, rsaa, coverage_ascii, $
                         coverage_figure
 ;------------------------------------------------------------------------------;
-; Copyright (c) 2015 Jonathan D. Henshaw
-; CONTACT: j.d.henshaw@ljmu.ac.uk
-;
 ; PROGRAM NAME:
 ;   COVERAGE PLOT
 ;

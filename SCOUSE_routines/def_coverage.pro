@@ -1,9 +1,6 @@
 FUNCTION def_coverage, momzero, x_axis, y_axis, rsaa, moment_zero_ascii, $
                        coverage_ascii
 ;------------------------------------------------------------------------------;
-; Copyright (c) 2015 Jonathan D. Henshaw
-; CONTACT: j.d.henshaw@ljmu.ac.uk
-;
 ; PROGRAM NAME:
 ;   DEF COVERAGE
 ;

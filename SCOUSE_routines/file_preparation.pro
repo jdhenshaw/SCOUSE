@@ -2,9 +2,6 @@ FUNCTION file_preparation, input_file, vunit, image, x_axis, y_axis, z_axis, $
                            HDR_DATA, data_rms = data_rms, $
                            z_axis_rms = z_axis_rms, HDR_NEW=HDR_NEW
 ;------------------------------------------------------------------------------;
-; Copyright (c) 2015 Jonathan D. Henshaw
-; CONTACT: j.d.henshaw@ljmu.ac.uk
-;
 ; PROGRAM NAME:
 ;   FILE PREPARATION
 ;
