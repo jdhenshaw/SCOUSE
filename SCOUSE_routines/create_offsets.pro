@@ -8,13 +8,6 @@ FUNCTION create_offsets, raaxis, decaxis, crval1, crval2, $
 ;   This program creates offset right ascension and declination given the 
 ;   central coordinates of a map. 
 ;
-; INFORMATION:
-;   This program can and should be edited to the users taste and is
-;   non-essential to SCOUSE
-;
-;   This code makes use of disp.pro written by Erik Rosolowski available here:
-;   https://github.com/low-sky/idl-low-sky/blob/master/graphics/disp.pro
-;
 ;------------------------------------------------------------------------------;
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, November 2015
