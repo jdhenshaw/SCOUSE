@@ -38,10 +38,8 @@ If you use SCOUSE in the analysis of molecular line data, please cite the paper
 in which it is presented Henshaw et al. 2015 (submitted)
 
 If it is the first time you have used SCOUSE, J. D. Henshaw would appreciate
-being involved in the project to provide assistance where necessary.
-
-However, this is not required and you are free to use these routines as you see
-fit.
+being involved in the project to provide assistance where necessary. However, 
+this is not required and you are free to use these routines as you see fit.
 
 Availability
 ============
