@@ -43,7 +43,7 @@ cgText, xtextpos, ytextpos-4.0*inc, n+' components', $
 
 IF SolnArr[0,0] EQ 0.0 THEN BEGIN
 
-  cgplot, x, y, ps =10, color = cgcolor('green'), thick = 1, /over
+  cgPlot, x, y, ps = 10, color = cgColor('green'), thick = 1, /over
 
 ENDIF ELSE BEGIN
   dummy_x = (FINDGEN(6001)-3000)*0.1
@@ -56,10 +56,10 @@ ENDIF ELSE BEGIN
     gauss      = SolnArr[i,3]*EXP(-(((dummy_x-SolnArr[i,5])^2.)/$
                  (2.*(SolnArr[i,7]/(2.0*SQRT(2.0*ALOG(2.0))))^2.)))
                  
-    cgplot, dummy_x, gauss, color = cgcolor('indian red'), thick = 2, /over
+    cgPlot, dummy_x, gauss, color = cgColor('indian red'), thick = 2, /over
   ENDFOR
-  cgplot, dummy_x, gauss_tot, color = cgcolor('dodger blue'), thick = 2, /over
-  cgplot, x, ResArr, ps =10, color = cgcolor('green'), thick = 1, /over
+  cgPlot, dummy_x, gauss_tot, color = cgColor('dodger blue'), thick = 2, /over
+  cgPlot, x, ResArr, ps =10, color = cgColor('green'), thick = 1, /over
   
 ENDELSE
 

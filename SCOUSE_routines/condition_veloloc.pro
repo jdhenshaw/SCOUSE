@@ -38,8 +38,8 @@ FOR i = 0, n-1 DO BEGIN
   
   ; Now check to see if the components satisfy the conditions
   
-  IF (SolnArr[i,5] GT (SaaSoln[ID_minimum[0],5]-Tolerances[3]*(SaaSoln[ID_minimum[0],7]/(2.0*SQRT(2.0*ALOG(2.0)))))) AND $
-     (SolnArr[i,5] LT (SaaSoln[ID_minimum[0],5]+Tolerances[3]*(SaaSoln[ID_minimum[0],7]/(2.0*SQRT(2.0*ALOG(2.0)))))) THEN BEGIN
+  IF (SolnArr[i,5] GT (SaaSoln[ID_minimum[0],5]-(Tolerances[3]*(SaaSoln[ID_minimum[0],7]/(2.0*SQRT(2.0*ALOG(2.0))))))) AND $
+     (SolnArr[i,5] LT (SaaSoln[ID_minimum[0],5]+(Tolerances[3]*(SaaSoln[ID_minimum[0],7]/(2.0*SQRT(2.0*ALOG(2.0))))))) THEN BEGIN
 
     param_estimates[(i*3)]   = param_estimates[(i*3)]
     param_estimates[(i*3)+1] = param_estimates[(i*3)+1]

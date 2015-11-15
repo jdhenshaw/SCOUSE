@@ -38,9 +38,14 @@ FOR i = 0, n-1 DO BEGIN
   ID_minimum = WHERE(DiffArr EQ MIN(DiffArr))
 
   ; Now check to see if the components satisfy the conditions
+
+  IF SolnArr[i,7] GT SaaSoln[ID_minimum[0],7] THEN $
+     FWHMDIFF=(SolnArr[i,7]/SaaSoln[ID_minimum[0],7]) ELSE $
+     FWHMDIFF=(SaaSoln[ID_minimum[0],7]/SolnArr[i,7])
+  
   
   IF (SolnArr[i,7] GT Tolerances[1]*Tolerances[5]) AND $
-     (SolnArr[i,7] LT Tolerances[2]*SaaSoln[ID_minimum[0],7]) THEN BEGIN
+     (FWHMDIFF LT Tolerances[2]) THEN BEGIN
 
     param_estimates[(i*3)]   = param_estimates[(i*3)]
     param_estimates[(i*3)+1] = param_estimates[(i*3)+1]
