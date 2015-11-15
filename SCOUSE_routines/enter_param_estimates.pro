@@ -1,18 +1,21 @@
-FUNCTION ENTER_PARAM_ESTIMATES, X, Y, xpos, ypos, rms, n = n             
-;------------------------------------------------------------------------------;
+;+
+;
 ; PROGRAM NAME:
 ;   ENTER PARAM ESTIMATES
 ;
 ; PURPOSE:
-;   Here the user enters the number of gaussian components to fit. 
-;   This program creates the arrays that will be passed into the fitting 
-;   procedure
+;   An interactive program. The user needs to provide the number of Gaussians
+;   and estimates for the intensity, centroid velocity, and FWHM line width.
+;   
 ;------------------------------------------------------------------------------;
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
-;------------------------------------------------------------------------------;
+;-
+
+FUNCTION ENTER_PARAM_ESTIMATES, x, y, xpos, ypos, rms, n = n
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
 ; Fit the Gaussian(s)                                                                                                                ;
 ;------------------------------------------------------------------------------;
@@ -80,9 +83,6 @@ ENDIF ELSE BEGIN
 ENDELSE
 
 ;------------------------------------------------------------------------------;
-; END PROCESS
-;------------------------------------------------------------------------------;
-
 RETURN, param_estimates
 
 END

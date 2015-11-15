@@ -1,6 +1,5 @@
-FUNCTION FILE_READ, datadirectory, fitsfile, x_axis=x_axis, y_axis=y_axis, $
-                    z_axis=z_axis, HDR_DATA = HDR_DATA
-;------------------------------------------------------------------------------;
+;+
+;
 ; PROGRAM NAME:
 ;   FILE READ
 ;   
@@ -10,13 +9,16 @@ FUNCTION FILE_READ, datadirectory, fitsfile, x_axis=x_axis, y_axis=y_axis, $
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;   
-;------------------------------------------------------------------------------;
+;-
+
+FUNCTION FILE_READ, dir, file, x=x, y=y, z=z, HDR_DATA = HDR_DATA
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
 ; READ FITS
 ;------------------------------------------------------------------------------;
 
-image = MRDFITS(datadirectory+fitsfile, 0, HDR_DATA)
+image = MRDFITS(dir+file, 0, HDR_DATA)
 
 ; Generic properties
 
@@ -40,9 +42,9 @@ IF naxis EQ 2.0 THEN BEGIN ; Continuum data
   crval2 = SXPAR(HDR_DATA,'CRVAL2') ; Coord value for y-axis reference pixel
   ctype2 = SXPAR(HDR_DATA,'CTYPE2') ; Co-ordinate system for y-axis
   
-  x_axis = (cdelt1*(FINDGEN(naxis1)+1-crpix1))+crval1 ; Create the axes
-  y_axis = (cdelt2*(FINDGEN(naxis2)+1-crpix2))+crval2
-  z_axis = -1
+  x = (cdelt1*(FINDGEN(naxis1)+1-crpix1))+crval1 ; Create the axes
+  y = (cdelt2*(FINDGEN(naxis2)+1-crpix2))+crval2
+  z = -1
   
 ENDIF ELSE BEGIN ; Spectral line data
 
@@ -62,14 +64,13 @@ ENDIF ELSE BEGIN ; Spectral line data
   crval3 = SXPAR(HDR_DATA,'CRVAL3') ; Value for velocity axis reference pixel 
   ctype3 = SXPAR(HDR_DATA,'CTYPE3') ; Co-ordinate system for z-axis 
 
-  x_axis = (cdelt1*(FINDGEN(naxis1)+1-crpix1))+crval1 ; Create the axes
-  y_axis = (cdelt2*(FINDGEN(naxis2)+1-crpix2))+crval2
-  z_axis = (cdelt3*(FINDGEN(naxis3)+1-crpix3))+crval3
+  x = (cdelt1*(FINDGEN(naxis1)+1-crpix1))+crval1 ; Create the axes
+  y = (cdelt2*(FINDGEN(naxis2)+1-crpix2))+crval2
+  z = (cdelt3*(FINDGEN(naxis3)+1-crpix3))+crval3
 ENDELSE
 
 ;------------------------------------------------------------------------------;
-; END PROCESS
-;------------------------------------------------------------------------------;
+
 RETURN, image
 
 END

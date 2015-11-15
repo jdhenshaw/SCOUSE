@@ -1,5 +1,5 @@
-FUNCTION PLOT_SPECTRUM, x, y, xrange_l, xrange_u, xtitle, ytitle, windowpos
-;------------------------------------------------------------------------------;
+;+
+;
 ; PROGRAM NAME:
 ;   PLOT SPECTRUM
 ;
@@ -9,8 +9,11 @@ FUNCTION PLOT_SPECTRUM, x, y, xrange_l, xrange_u, xtitle, ytitle, windowpos
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
-;------------------------------------------------------------------------------;
+;-
+
+FUNCTION PLOT_SPECTRUM, x, y, xrange_l, xrange_u, xtitle, ytitle, windowpos
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
 ; SIMPLE PLOT
 ;------------------------------------------------------------------------------;
@@ -31,7 +34,6 @@ plot, x, y, $
 oplot, x, y, color = cgcolor('black'), thick = 1, ps=10
 
 ;------------------------------------------------------------------------------;
-; END PROCESS
-;------------------------------------------------------------------------------;
+
 
 END

@@ -36,8 +36,8 @@ Compile_Opt idl2
 ; USER INPUTS
 ;------------------------------------------------------------------------------;
 
-datadirectory =  ''
-filename = '' ; The data cube to be analysed
+datadirectory =  '/Users/Jonathan/Dropbox/Work/Code/PPV_analysis/fits_files_for_analysis/test/'
+filename = 'n2h+10_37' ; The data cube to be analysed
 fitsfile = filename+'.fits'
 vunit = 1000.0 ; if FITS header has units of m/s; conv from m/s to km/s
 
@@ -81,16 +81,16 @@ READCOL, cov_coordfile, format = '(F,F)', coverage_x, coverage_y, /silent
 READCOL, input_file, inputs, /silent
 rsaa = inputs[6]
 
-;-----------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;
 ; BEGIN ANALYSIS
-;-----------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;
 PRINT, ''
 PRINT, 'Beginning analysis...'
 PRINT, ''
-JOURNAL, datadirectory+filename+'/'+'MISC/stagetwo_log.dat'
+JOURNAL, datadirectory+filename+'/'+'misc/stagetwo_log.dat'
 starttime = SYSTIME(/seconds)
 
-;-----------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;
 count_val  = 0.0
 n          = '' ; Number of gaussian components
 ncount     = 0 ; Number of spectra fitted
@@ -98,7 +98,7 @@ spec_x     = z_axis
 spec_x_rms = z_axis_rms
 
 FOR i = 0, N_ELEMENTS(coverage_x)-1 DO BEGIN 
-  
+
   ; Identify the positions associated with each coverage area
 
   ID_x = WHERE(x_axis LT coverage_x[i]+rsaa AND x_axis GT coverage_x[i]-rsaa)
@@ -115,13 +115,12 @@ FOR i = 0, N_ELEMENTS(coverage_x)-1 DO BEGIN
                             temp_file, rms_window_val=rms_window_val)    
                             
   err_spec_y = REPLICATE(spectral_rms, N_ELEMENTS(spec_y))
-                                  
+                       
   ; Begin the fitting routine
   
   SolnArr = FIT_SAA( spec_x, spec_x_rms, spec_y, spec_y_rms, err_spec_y,$
                      rms_window_val, coverage_x[i], coverage_y[i], $
                      n, temp_file, ResArr=ResArr)
-  
   
   output_solns = OUTPUT_SAA_SOLUTION( i, SolnArr, spec_x, specResArr, outputdatafile )
                                    

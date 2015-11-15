@@ -1,5 +1,5 @@
-PRO SCOUSE_STAGE_1
-;------------------------------------------------------------------------------;
+;+
+;
 ; SCOUSE - Semi-automated multi-COmponent Universal Spectral-line fitting Engine
 ; Copyright (c) 2015 Jonathan D. Henshaw
 ; CONTACT: j.d.henshaw[AT]ljmu.ac.uk
@@ -44,27 +44,30 @@ PRO SCOUSE_STAGE_1
 ;   Written by Jonathan D. Henshaw, 2015
 ;
 ;
-;------------------------------------------------------------------------------;
+;-
+
+PRO SCOUSE_STAGE_1
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
 ; USER INPUTS
 ;------------------------------------------------------------------------------;
 
 datadirectory =  ''
-filename      = '' ; The data cube to be analysed
-fitsfile      = filename+'.fits'
+filename = '' ; The data cube to be analysed
+fitsfile = filename+'.fits'
 
-vlower     = -1000.0.0 ; The upper/lower limit over which to fit the data
-vupper     = 1000.0
-xlower     = -1000.0 ; To fit the full range use 1000, -1000.
-xupper     = 1000.0
-ylower     = -1000.0 ;
-yupper     = 1000.0 ;
-rsaa       = 0.0 ; Radius for the spectral averaging areas. Map units.
+vlower = -1000.0 ; The upper/lower limit over which to fit the data
+vupper = 1000.0
+xlower  = -1000.0 ; To fit the full range use 1000, -1000.
+xupper = 1000.0
+ylower  = -1000.0 ;
+yupper = 1000.0 ;
+rsaa = 0.0 ; Radius for the spectral averaging areas. Map units.
 rms_approx = 0.0 ; Enter an approximate rms value for the data.
-sigma_cut  = 3
+sigma_cut = 3
 
-vunit      = 1000.0 ; if FITS header has units of m/s; conv from m/s to km/s
+vunit = 1000.0 ; if FITS header has units of m/s; conv from m/s to km/s
 
 ;------------------------------------------------------------------------------;
 ; CREATE MAIN OUTPUT DIRECTORY AND SUB-DIRECTORIES
@@ -130,9 +133,7 @@ coverage_figure = datadirectory+filename+'/'+stageone+'/COVERAGE/coverage.eps'
 
 ; Coordinate files
 
-; coordfile: Coords of pixels within the map
 coordfile = datadirectory+filename+'/MISC/coords.dat'
-; coordfile_coverage: Coords of pixels within the coverage
 coordfile_coverage = datadirectory+filename+'/MISC/coords_coverage.dat'
 
 ; Inputs
@@ -160,28 +161,31 @@ CLOSE,1
 ; FILE INPUT AND AXES CREATION
 ;-----------------------------------------------------------------------------;
 ; Read in FITS file and create axes
-image = FILE_READ( datadirectory, fitsfile, x_axis=x_axis, y_axis=y_axis, $
-                   z_axis=z_axis, HDR_DATA=HDR_DATA ) 
+image = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, $
+                   HDR_DATA=HDR_DATA ) 
+              
+z_axis = z_axis/vunit
 
-data = FILE_PREPARATION( input_file, vunit, image, x_axis, y_axis, z_axis, $
-                         HDR_DATA, image_rms=data_rms, z_axis_rms=z_axis_rms, $
-                         HDR_NEW=HDR_NEW )
-;-----------------------------------------------------------------------------;
+data = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA,$ 
+                         input_file, vunit, $
+                         image_rms=data_rms, z_rms=z_axis_rms,HDR_NEW=HDR_NEW )
+                      
+;------------------------------------------------------------------------------;
 ; BEGIN ANALYSIS
-;-----------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;
 print, ''
 print, 'Beginning analysis...'
 print, ''
 JOURNAL, datadirectory+filename+'/'+'MISC/stageone_log.dat'
 starttime = SYSTIME(/seconds)
-;-----------------------------------------------------------------------------;
-; MAKE SOME MOMENT MAPS
-;-----------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;
+; MAKE MOMENT MAPS
+;------------------------------------------------------------------------------;
 momzero = MOMENT_ZERO(data, x_axis, y_axis, z_axis, rms_approx, sigma_cut, $
                       moment_zero_ascii )
 
 momone = MOMENT_ONE(data, x_axis, y_axis, z_axis, rms_approx, sigma_cut, $
-                    moment_one_ascii, momzero )
+                    moment_one_ascii )
 
 momtwo = MOMENT_TWO(data, x_axis, y_axis, z_axis, rms_approx, sigma_cut, $
                     moment_two_ascii, momone )
@@ -192,17 +196,15 @@ WRITEFITS, moment_two_fits, momtwo, HDR_NEW
 ;------------------------------------------------------------------------------;
 ; DEFINE THE COVERAGE
 ;------------------------------------------------------------------------------;
-nareas = DEF_COVERAGE( momzero, x_axis, y_axis, rsaa, moment_zero_ascii, $
-                       coverage_ascii )
-                       
-npos = CREATE_COORDFILES( rsaa,coverage_ascii,coordfile,coordfile_coverage,tmp,$
-                          x_axis,y_axis )
-                          
-moment_map = COVERAGE_PLOT( momzero,x_axis,y_axis, rsaa,coverage_ascii,$
-                            coverage_figure )
+nareas = DEF_COVERAGE( x_axis, y_axis, momzero, rsaa, coverage_ascii )
+                    
+npos = CREATE_COORDFILES( x_axis,y_axis, rsaa, coverage_ascii, coordfile, $
+                          coordfile_coverage, tmp)
+                                               
+coverage_map = COVERAGE_PLOT( x_axis,y_axis, rsaa, momzero, coverage_ascii,$
+                              coverage_figure )                                                        
 ;------------------------------------------------------------------------------;
-; END PROCESS
-;------------------------------------------------------------------------------;
+
 PRINT, ''
 PRINT, 'Number of spectra to fit manually: ', FLOAT(nareas)
 PRINT, ''
@@ -220,10 +222,10 @@ END
 ; ADDITIONAL (OPTIONAL) CODE FOR OFFSET POSITIONS
 ;------------------------------------------------------------------------------;
 
-;crval1    = SXPAR(HDR_DATA,'CRVAL1') 
-;crval2    = SXPAR(HDR_DATA,'CRVAL2') 
-;create_offset_positions = CREATE_OFFSETS( x_axis, y_axis, crval1, crval2, 
-;                                          ra_offsets=ra_offsets, 
-;                                          dec_offsets=dec_offsets )
+;crval1    = SXPAR(HDR_DATA,'CRVAL1')
+;crval2    = SXPAR(HDR_DATA,'CRVAL2')
+;create_offset_positions = CREATE_OFFSETS( x_axis, y_axis, crval1, crval2,$
+;                                          x_off=ra_offsets,$
+;                                          y_off=dec_offsets )
 ;x_axis = ra_offsets
-;y_axis = dec_offsets
+;y_axis = dec_offsets 

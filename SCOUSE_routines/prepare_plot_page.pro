@@ -1,5 +1,5 @@
-FUNCTION PREPARE_PLOT_PAGE, x, y, xpos, ypos, rms
-;------------------------------------------------------------------------------;
+;+
+;
 ; PROGRAM NAME:
 ;   PREPARE TO FIT
 ;
@@ -9,8 +9,11 @@ FUNCTION PREPARE_PLOT_PAGE, x, y, xpos, ypos, rms
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
-;------------------------------------------------------------------------------;
+;-
+
+FUNCTION PREPARE_PLOT_PAGE, x, y, xpos, ypos, rms
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
 ; PREPARE PLOT PAGE
 ;------------------------------------------------------------------------------;
@@ -28,7 +31,7 @@ windowpos = [0.15, 0.1, 0.7, 0.5]
 ;------------------------------------------------------------------------------;
 
 plot_rsaa_spec = PLOT_SPECTRUM( x, y, MIN(x), MAX(x), $
-                                'Velocity (km s!U -1!N)', 'T', windowpos )
+                                'Velocity (km s!U -1!N)', '', windowpos )
 
 ;-----------------------------------------------------------------------------;
 ; CREATE ADJACENT BOX
@@ -51,9 +54,9 @@ PolyFill, [windowpos[2]+0.01,windowpos[2]+0.01,windowpos[2]+0.26, $
 ; ADD TEXT
 ;-----------------------------------------------------------------------------;
 
-xpos    = STRING(xpos, format = '(F0.3)')
-ypos    = STRING(ypos, format = '(F0.3)')
-rmstext = STRING(rms, format = '(F0.3)')
+xpostext = STRING(xpos, format = '(F0.3)')
+ypostext = STRING(ypos, format = '(F0.3)')
+rmstext  = STRING(rms, format = '(F0.3)')
 
 xtextpos = windowpos[2]+0.02
 ytextpos = windowpos[3]-0.05
@@ -63,14 +66,13 @@ cgText, 0.5, 0.9, 'Gaussian Fitting', $
         COLOR='navy', charsize = 2.0, charthick = 1.5, align = 0.5, /normal
 cgText, xtextpos, ytextpos, 'Information:', $
         COLOR='navy', charthick = 1.5, /normal
-cgText, xtextpos, ytextpos-2.0*inc, 'Pos = '+xpos+', '+ypos, $
+cgText, xtextpos, ytextpos-2.0*inc, 'Pos = '+xpostext+', '+ypostext, $
         COLOR='navy', charsize = 1.2, /normal
 cgText, xtextpos, ytextpos-3.0*inc, 'rms = '+rmstext+' K', $
         COLOR='navy', charsize = 1.2, /normal
 
 ;------------------------------------------------------------------------------;
-; END PROCESS
-;------------------------------------------------------------------------------;
+
 RETURN, windowpos
 
 END

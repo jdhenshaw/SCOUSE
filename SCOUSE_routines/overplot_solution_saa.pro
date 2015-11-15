@@ -1,16 +1,20 @@
-FUNCTION OVERPLOT_SOLUTION_SAA, x, y, SolnArr, ResArr, windowpos
-;------------------------------------------------------------------------------;
+;+
+;
 ; PROGRAM NAME:
 ;   OVERPLOT SOLUTION SAA
 ;
 ; PURPOSE:
 ;   Overplots the current SAA solution
+;   
 ;------------------------------------------------------------------------------;
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
-;------------------------------------------------------------------------------;
+;-
+
+FUNCTION OVERPLOT_SOLUTION_SAA, x, y, SolnArr, ResArr, windowpos
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
 
 ; Prepare text
@@ -19,8 +23,9 @@ n             = STRING(SolnArr[0,0], format = '(I2)')
 xpos          = STRING(SolnArr[0,1], format = '(F0.3)')
 ypos          = STRING(SolnArr[0,2], format = '(F0.3)')
 rmstext       = STRING(SolnArr[0,9], format = '(F0.3)')
-chisqred_text = STRING(SolnArr[0,10], format='(F0.2)')
-resid_text    = STRING(SolnArr[0,11], format='(F0.2)')
+resid_text    = STRING(SolnArr[0,10], format='(F0.2)')
+chisqred_text = STRING(SolnArr[0,13], format='(F0.2)')
+
 
 xtextpos = windowpos[2]+0.02
 ytextpos = windowpos[3]-0.05
@@ -59,6 +64,5 @@ ENDIF ELSE BEGIN
 ENDELSE
 
 ;------------------------------------------------------------------------------;
-; END PROCESS
-;------------------------------------------------------------------------------;
+
 END
