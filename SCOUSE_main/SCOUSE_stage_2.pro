@@ -10,11 +10,6 @@
 ; PURPOSE:
 ;   An interactive program designed to find best-fitting solutions to spatially
 ;   averaged spectra taken from the SAAs.
-;   
-; USAGE:
-; 
-;   SCOUSE requires a .fits file as input. The spectral axis should be in
-;   velocity units.
 ;  
 ; OUTPUT:
 ; 

@@ -12,11 +12,6 @@
 ;   The user can retain the current solution, select an alternative, or refit
 ;   entirely.
 ;   
-; USAGE:
-;
-;   SCOUSE requires a .fits file as input. The spectral axis should be in
-;   velocity units.
-;   
 ; OUTPUT:
 ; 
 ;   alternative_solutions.dat - A file containing the alternative solutions to

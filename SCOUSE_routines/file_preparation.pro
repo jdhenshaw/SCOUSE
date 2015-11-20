@@ -19,8 +19,7 @@
 ;-
 
 FUNCTION FILE_PREPARATION, image, x, y, z, header, info, vunit, $
-                           image_rms=image_rms, z_rms=z_rms, header_new=header_new, $
-                           OFFSETS=offpos
+                           image_rms=image_rms, z_rms=z_rms, header_new=header_new
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
@@ -59,14 +58,6 @@ IF inputs[5] NE 1000.0 AND inputs[4] NE -1000.0 THEN BEGIN
   y = y[MIN(ID):MAX(ID)]
   image = image[*,MIN(ID):MAX(ID),*]
   image_rms = image_rms[*,MIN(ID):MAX(ID),*]
-ENDIF
-
-IF (KEYWORD_SET(offpos)) THEN BEGIN
-  x0 = SXPAR(header,'CRVAL1')
-  y0 = SXPAR(header,'CRVAL2')
-  CREATE_OFFSETS, x, y, x0, y0, x_off=x_off, y_off=y_off
-  x = x_off
-  y = y_off
 ENDIF
 
 ;------------------------------------------------------------------------------;

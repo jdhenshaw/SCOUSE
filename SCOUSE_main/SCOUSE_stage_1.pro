@@ -37,7 +37,7 @@
 ;   If the user wishes to perform line-fitting over the full cube provided, 
 ;   change the lower and upper limits to -1000.0 and 1000.0, respectively.
 ;   
-;   The user should inspect the FILE_PREPARATION function. Note that the Rsaa 
+;   The user should inspect the FILE_READ function. Note that the Rsaa 
 ;   value must be given in terms of map units. The keyword /OFFSETS can be
 ;   used to calculate the offset RA and Dec from a particular position. 
 ;
@@ -122,7 +122,7 @@ yupper        =  1000.0           ; The upper limit to the y dimension
 rsaa          =  0.0              ; Radius for the spectral averaging areas. Map units.
 rms_approx    =  0.0              ; Enter an approximate rms value for the data.
 sigma_cut     =  3                ; Threshold below which all channel values set to 0.0
-vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s
+vunit         =  1000.0              ; if FITS header has units of m/s; conv from m/s to km/s
 
 ;------------------------------------------------------------------------------;
 ; CREATE MAIN OUTPUT DIRECTORY AND SUB-DIRECTORIES
