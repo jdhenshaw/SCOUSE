@@ -1,5 +1,5 @@
-FUNCTION GAUSSFUNC, velo, p
-;------------------------------------------------------------------------------;
+;+
+;
 ; PROGRAM NAME:
 ;   GAUSSFUNC
 ;
@@ -9,9 +9,13 @@ FUNCTION GAUSSFUNC, velo, p
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
-;------------------------------------------------------------------------------;
+;-
+
+FUNCTION GAUSSFUNC, velo, p
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
+
 array_size = SIZE(p, /dimensions)
 n = array_size/3
 

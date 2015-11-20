@@ -12,7 +12,7 @@
 ;
 ;-
 
-FUNCTION OVERPLOT_SOLUTION_SAA, x, y, SolnArr, ResArr, windowpos
+PRO OVERPLOT_SOLUTION, x, y, SolnArr, residual_array, windowpos
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
@@ -26,14 +26,13 @@ rmstext       = STRING(SolnArr[0,9], format = '(F0.3)')
 resid_text    = STRING(SolnArr[0,10], format='(F0.2)')
 chisqred_text = STRING(SolnArr[0,13], format='(F0.2)')
 
-
 xtextpos = windowpos[2]+0.02
 ytextpos = windowpos[3]-0.05
 inc      = 0.05
 
 cgText, xtextpos, ytextpos-5.0*inc, '!4v!X!U 2!N!D red!N = '+chisqred_text,$
   COLOR='navy', charsize = 1.2, /normal
-cgText, xtextpos, ytextpos-6.0*inc, 'resid = ' + resid_text + ' K', $
+cgText, xtextpos, ytextpos-6.0*inc, 'resid = ' + resid_text + ' units', $
   COLOR='navy', charsize = 1.2, /normal
 cgText, xtextpos, ytextpos-4.0*inc, n+' components', $
   COLOR='navy', charsize = 1.2, /normal
@@ -59,7 +58,7 @@ ENDIF ELSE BEGIN
     cgPlot, dummy_x, gauss, color = cgColor('indian red'), thick = 2, /over
   ENDFOR
   cgPlot, dummy_x, gauss_tot, color = cgColor('dodger blue'), thick = 2, /over
-  cgPlot, x, ResArr, ps =10, color = cgColor('green'), thick = 1, /over
+  cgPlot, x, residual_array, ps =10, color = cgColor('green'), thick = 1, /over
   
 ENDELSE
 

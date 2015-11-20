@@ -1,16 +1,20 @@
-FUNCTION CALCULATE_RMS, x, y, rms_window_val
-;------------------------------------------------------------------------------;
+;+
+;
 ; PROGRAM NAME:
 ;   CALCULATE_RMS
 ;
 ; PURPOSE:
 ;   Calculates the rms given a window of line-free data
+;   
 ;------------------------------------------------------------------------------;
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
-;------------------------------------------------------------------------------;
+;-
+
+FUNCTION CALCULATE_RMS, x, y, rms_window_val
 Compile_Opt idl2
+
 ;------------------------------------------------------------------------------;
 ; RMS calc
 ;------------------------------------------------------------------------------;

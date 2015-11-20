@@ -5,6 +5,7 @@
 ;
 ; PURPOSE:
 ;   Plots a spectrum
+;  
 ;------------------------------------------------------------------------------;
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
@@ -20,10 +21,10 @@ Compile_Opt idl2
 
 diff = 0.1*max(y)
 
-cgplot, x, y, xstyle = 4, ystyle=4, /nodata
+cgPlot, x, y, xstyle = 4, ystyle=4, /nodata
 
 pold_H=!p.multi[0]
-plot, x, y, $
+PLOT, x, y, $
       xrange = [xrange_l, xrange_u], yrange=[min(y)-diff, max(y)+diff], $
       position = windowpos, $
       ps = 10, color = cgcolor('black'), $
@@ -31,7 +32,7 @@ plot, x, y, $
       /nodata, /noerase
 !p.multi[0]=pold_H
 
-oplot, x, y, color = cgcolor('black'), thick = 1, ps=10
+OPLOT, x, y, color = cgcolor('black'), thick = 1, ps=10
 
 ;------------------------------------------------------------------------------;
 

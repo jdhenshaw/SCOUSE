@@ -14,25 +14,19 @@
 ;
 ;-
 
-FUNCTION SELECT_INDICES, SolnArr, IndArr_trim, OutFile
+PRO SELECT_INDICES, SolnArr, IndArr_trim, OutFile
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
 
-ind = 0
-
+ind = ''
 OPENW,1, OutFile, /append
 PRINT, ''
 WHILE ind NE -1 DO BEGIN
-  READ, ind, prompt = 'Enter index (enter -1 when finished): '
-  
+  READ, ind, prompt = 'Enter index (enter -1 when finished): '  
   ID = WHERE(IndArr_trim[*, 4] EQ ind)
-  
-  ; When selected by the user, print these indices to file. 
   IF ind[0] NE -1.0 AND ID[0] NE -1.0 THEN BEGIN
-    PRINTF, 1, IndArr_trim[ID,0], IndArr_trim[ID,1], $
-               IndArr_trim[ID,2], IndArr_trim[ID,3], IndArr_trim[ID,4], $
-               format='(5(F12.5, x))'
+    PRINTF, 1, IndArr_trim[ID,0], IndArr_trim[ID,1], IndArr_trim[ID,2], IndArr_trim[ID,3], IndArr_trim[ID,4], format='(5(F12.5, x))'
   ENDIF
 ENDWHILE
 PRINT, ''

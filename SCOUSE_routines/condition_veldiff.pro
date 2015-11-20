@@ -12,17 +12,16 @@
 ;
 ;-
 
-FUNCTION CONDITION_VELDIFF, param_estimates,SolnArr,SaaSoln,tolerances
+FUNCTION CONDITION_VELDIFF, parameter_estimates, SolnArr, tolerances
 Compile_Opt idl2
 
 ;-----------------------------------------------------------------------------;
 ;
 ;-----------------------------------------------------------------------------;
 
-n          = N_ELEMENTS(param_estimates)/3
-param_temp = replicate(0.0, n)
-DiffArr    = replicate(0.0, n)
-
+n          = N_ELEMENTS(parameter_estimates)/3
+param_temp = REPLICATE(0d0, n)
+DiffArr    = REPLICATE(0d0, n)
 
 FOR i = 0, n-1 DO BEGIN
   
@@ -50,26 +49,26 @@ FOR i = 0, n-1 DO BEGIN
         param_temp[i] = 0.0
         param_temp[ID_minimum[0]] = 0.0
         
-        param_estimates[(i*3)]   = param_estimates[(i*3)]
-        param_estimates[(i*3)+1] = param_estimates[(i*3)+1]
-        param_estimates[(i*3)+2] = param_estimates[(i*3)+2]
+        parameter_estimates[(i*3)]   = parameter_estimates[(i*3)]
+        parameter_estimates[(i*3)+1] = parameter_estimates[(i*3)+1]
+        parameter_estimates[(i*3)+2] = parameter_estimates[(i*3)+2]
         
-        param_estimates[(ID_minimum[0]*3)]   = param_estimates[(ID_minimum[0]*3)]
-        param_estimates[(ID_minimum[0]*3)+1] = param_estimates[(ID_minimum[0]*3)+1]
-        param_estimates[(ID_minimum[0]*3)+2] = param_estimates[(ID_minimum[0]*3)+2]
+        parameter_estimates[(ID_minimum[0]*3)]   = parameter_estimates[(ID_minimum[0]*3)]
+        parameter_estimates[(ID_minimum[0]*3)+1] = parameter_estimates[(ID_minimum[0]*3)+1]
+        parameter_estimates[(ID_minimum[0]*3)+2] = parameter_estimates[(ID_minimum[0]*3)+2]
         
       ENDIF ELSE BEGIN
         
         param_temp[i] = 0.0
         param_temp[ID_minimum[0]] = -1.0
         
-        param_estimates[(i*3)]   = param_estimates[(i*3)]
-        param_estimates[(i*3)+1] = param_estimates[(i*3)+1]
-        param_estimates[(i*3)+2] = param_estimates[(i*3)+2]
+        parameter_estimates[(i*3)]   = parameter_estimates[(i*3)]
+        parameter_estimates[(i*3)+1] = parameter_estimates[(i*3)+1]
+        parameter_estimates[(i*3)+2] = parameter_estimates[(i*3)+2]
         
-        param_estimates[(ID_minimum[0]*3)]   = 0.0
-        param_estimates[(ID_minimum[0]*3)+1] = 0.0
-        param_estimates[(ID_minimum[0]*3)+2] = 0.0
+        parameter_estimates[(ID_minimum[0]*3)]   = 0.0
+        parameter_estimates[(ID_minimum[0]*3)+1] = 0.0
+        parameter_estimates[(ID_minimum[0]*3)+2] = 0.0
         
       ENDELSE
           
@@ -78,25 +77,25 @@ FOR i = 0, n-1 DO BEGIN
       param_temp[i] = 0.0
       param_temp[ID_minimum[0]] = -1.0
 
-      param_estimates[(i*3)]   = MEAN([SaaSoln[i,3],SaaSoln[ID_minimum[0],3]])
-      param_estimates[(i*3)+1] = MEAN([SaaSoln[i,5],SaaSoln[ID_minimum[0],5]])
-      param_estimates[(i*3)+2] = MEAN([SaaSoln[i,7],SaaSoln[ID_minimum[0],7]])
+      parameter_estimates[(i*3)]   = MEAN([SolnArr[i,3],SolnArr[ID_minimum[0],3]])
+      parameter_estimates[(i*3)+1] = MEAN([SolnArr[i,5],SolnArr[ID_minimum[0],5]])
+      parameter_estimates[(i*3)+2] = MEAN([SolnArr[i,7],SolnArr[ID_minimum[0],7]])
 
-      param_estimates[(ID_minimum[0]*3)]   = 0.0
-      param_estimates[(ID_minimum[0]*3)+1] = 0.0
-      param_estimates[(ID_minimum[0]*3)+2] = 0.0
+      parameter_estimates[(ID_minimum[0]*3)]   = 0.0
+      parameter_estimates[(ID_minimum[0]*3)+1] = 0.0
+      parameter_estimates[(ID_minimum[0]*3)+2] = 0.0
 
     ENDELSE
   ENDIF
 ENDFOR
 
-ID_REJECT = WHERE(param_estimates EQ 0.0, c)
+ID_REJECT = WHERE(parameter_estimates EQ 0.0, c)
 
-IF (c NE 0.0) AND TOTAL(param_estimates) NE 0.0 THEN BEGIN
-  param_estimates = param_estimates[WHERE(param_estimates ne 0.0)]
+IF (c NE 0.0) AND TOTAL(parameter_estimates) NE 0.0 THEN BEGIN
+  parameter_estimates = parameter_estimates[WHERE(parameter_estimates ne 0.0)]
 ENDIF
 
 ;------------------------------------------------------------------------------;
-RETURN, param_estimates
+RETURN, parameter_estimates
 
 END

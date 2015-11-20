@@ -1,4 +1,3 @@
-;
 ;+
 ;
 ; PROGRAM NAME:
@@ -13,16 +12,16 @@
 ;
 ;-
 
-FUNCTION calculate_AIC, n, x, totchisq
+FUNCTION CALCULATE_AIC, n, x, totalchisq
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
 
-nvel = n_elements(x)
+nvel    = N_ELEMENTS(x)
 nparams = n*3.0
-AIC = totchisq+2.0*nparams+((2.0*nparams*(nparams+1.0))/(nvel-nparams-1.0))
+AIC     = totalchisq+2.0*nparams+((2.0*nparams*(nparams+1.0))/(nvel-nparams-1.0))
 
 ;------------------------------------------------------------------------------;
-return, AIC
+RETURN, AIC
 
 END

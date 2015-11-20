@@ -13,7 +13,7 @@
 ;
 ;-
 
-FUNCTION REMDUP_SOLUTIONS, InFile, Infofile, OutFile
+PRO REMDUP_SOLUTIONS, InFile, Infofile, OutFile
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
@@ -21,85 +21,78 @@ Compile_Opt idl2
 ;------------------------------------------------------------------------------;
 
 READCOL, InfoFile, xpos, ypos, xindx, yindx, combindx, nlines=npos, /silent
-indArr = [[xpos], [ypos], [xindx], [yindx], [combindx]]
+indArr  = [[xpos], [ypos], [xindx], [yindx], [combindx]]
 READCOL, InFile, n, xpos, ypos, int, sint, vel, svel, fwhm, sfwhm, rms, resid, totchisq, dof, chisqred, AIC, nlines=nfits, /silent
-SolnArr = [[n],$
-          [xpos],[ypos],$
-          [int],[sint],$
-          [vel],[svel],$
-          [fwhm],[sfwhm],$
-          [rms],[resid],$
-          [totchisq],[dof],[chisqred],[AIC]]
+SolnArr = [[n],[xpos],[ypos],[int],[sint],[vel],[svel],[fwhm],[sfwhm],[rms],[resid],[totchisq],[dof],[chisqred],[AIC]]
 
 OPENW, 1, OutFile, width = 200
 CLOSE, 1
 
-FOR i = 0, N_ELEMENTS(indArr[*,0])-1 DO BEGIN
+FOR i = 0, N_ELEMENTS(indArr[*,0])-1 DO BEGIN 
+  ID_pos = WHERE(SolnArr[*,1] EQ indArr[i,0] AND SolnArr[*,2] EQ indArr[i,1])
   
   ; Every position should have a unique alternative, these will be stored for
   ; use with the latter stages
   
-  SolnArr_nofit = [[0.0],$
-                   [indArr[i,0]],[indArr[i,1]],$
-                   [0.0],[0.0],$
-                   [0.0],[0.0],$
-                   [0.0],[0.0],$
-                   [mean(rms)],[mean(resid)],$
-                   [1000.0],[1000.0],[1000.0],[1000.0]]
-  
+  SolnArr_nofit = [[0.0],[indArr[i,0]],[indArr[i,1]],[0.0],[0.0],[0.0],[0.0],[0.0],[0.0],[SolnArr[ID_pos[0],9]],[SolnArr[ID_pos[0],10]],[1000.0],[1000.0],[1000.0],[1000.0]]
   SolnArr_trim = 0.0 
-  ID_pos = WHERE(SolnArr[*,1] EQ indArr[i,0] AND SolnArr[*,2] EQ indArr[i,1])
   
   IF ID_pos[0] NE -1.0 THEN BEGIN       
     
-    ; Trim array to focus only on a single position
-    SolnArr_trim = SolnArr[ID_pos, *] 
     
-    ; Find where there is no best fitting solution
-     
-    ID_nofit = WHERE(SolnArr_trim[*,0] EQ 0.0)
+    SolnArr_trim = SolnArr[ID_pos, *]                                      ; Trim array to focus only on a single position
+    ID_nofit = WHERE(SolnArr_trim[*,0] EQ 0.0)                             ; Find where there is no best fitting solution
+    IF ID_nofit[0] EQ -1 THEN SolnArr_trim = [SolnArr_trim, SolnArr_nofit] ; If there isn't already a best fitting solution with 0 components, add one
+    ID_nofit     = WHERE(SolnArr_trim[*,0] EQ 0.0)                         ; Find where there is no best fitting solution 
+    SolnArr_uniq = SolnArr_trim[ID_nofit[0],*]                             ; Create an array that is going to contain only unique solutions     
+    uniq_indx    = REM_DUP(SolnArr_trim[*, 11])                            ; Find unique values of the residual
     
-    ; If there isn't already a best fitting solution with 0 components, add one
-    
-    IF ID_nofit[0] EQ -1 THEN SolnArr_trim = [SolnArr_trim, SolnArr_nofit] 
-    
-    ; Find where there is no best fitting solution
-    
-    ID_nofit     = WHERE(SolnArr_trim[*,0] EQ 0.0)
-    
-    ; Create an array that is going to contain only unique solutions
-    
-    SolnArr_uniq = SolnArr_trim[ID_nofit[0],*]    
-    
-    ; Find unique values of the residual
-    
-    uniq_indx    = REM_DUP(SolnArr_trim[*, 10]) 
-    
-    ; For each unique residual value, find out how many components have that 
-    ; value. If the number of components with the unique residual is greater
-    ; than the number of components fitted, this indicates that there are 
-    ; non-unique solutions for this residual value.  
-           
-    FOR j = 0, N_ELEMENTS(uniq_indx)-1 do begin
+    FOR j = 0, N_ELEMENTS(uniq_indx)-1 do begin                            ; Cycle through the unique values
       
-      uniq_resid = SolnArr_trim[uniq_indx[j],10] ; Value of the unique residual
-      ID_uniq = WHERE(SolnArr_trim[*,10] EQ uniq_resid) ; Indices of this resid
-      SolnArr_uniq_fit = SolnArr_trim[ID_uniq,*] ; Solutions with this resid  
-      
+      uniq_resid = SolnArr_trim[uniq_indx[j],11]                           ; Value of the unique residual
+      ID_uniq = WHERE(SolnArr_trim[*,11] EQ uniq_resid)                    ; Indices of this resid
+      SolnArr_uniq_fit = SolnArr_trim[ID_uniq, *]                          ; Solutions with this resid  
+        
       ; For those solutions extract unique parameter values, I, V, and FWHM
       
       ID_remdup = REM_DUP(SolnArr_uniq_fit[*, 3]) 
-      SolnArr_remdup = SolnArr_uniq_fit[ID_remdup, *]
-       
+      SolnArr_remdup = SolnArr_uniq_fit[ID_remdup, *]     
       ID_remdup = REM_DUP(SolnArr_remdup[*, 5])
-      SolnArr_remdup = SolnArr_remdup[ID_remdup, *]  
-      
+      SolnArr_remdup = SolnArr_remdup[ID_remdup, *]    
       ID_remdup = REM_DUP(SolnArr_remdup[*, 7])
       SolnArr_remdup = SolnArr_remdup[ID_remdup, *]
       
-      ; Concatenate with the current unique array
-       
-      SolnArr_uniq = [SolnArr_uniq, SolnArr_remdup]
+      ; If the number of components with the unique residual is greater
+      ; than the number of components fitted, this indicates that there are
+      ; still non-unique solutions for this residual value.
+      
+      IF N_ELEMENTS(SolnArr_remdup[*,0]) NE SolnArr_remdup[0,0] AND $
+         SolnArr_remdup[0,0] NE 0.0 THEN BEGIN
+         
+         ; Start with the velocity
+          
+         Soln_vel  = FLOAT(ROUND(SolnArr_remdup[*,5]*100.0)/100.0)   
+         ID_remdup = REM_DUP(Soln_vel)
+         SolnArr_remdup = SolnArr_remdup[ID_remdup, *] 
+         
+         IF N_ELEMENTS(SolnArr_remdup[*,0]) NE SolnArr_remdup[0,0] THEN BEGIN
+           
+           ; If there is still an issue, try the FWHM
+          
+           Soln_fwhm = FLOAT(ROUND(SolnArr_remdup[*,7]*100.0)/100.0)
+           ID_remdup = REM_DUP(Soln_fwhm)
+           SolnArr_remdup = SolnArr_remdup[ID_remdup, *]
+           
+           IF N_ELEMENTS(SolnArr_remdup[*,0]) NE SolnArr_remdup[0,0] THEN BEGIN
+             ; As a last resort try the intensity. The intensity is most likely 
+             ; to be influenced by the rounding. 
+             Soln_int = FLOAT(ROUND(SolnArr_remdup[*,3]*10000.0)/10000.0)
+             ID_remdup = REM_DUP(Soln_int)
+             SolnArr_remdup = SolnArr_remdup[ID_remdup, *]
+           ENDIF         
+         ENDIF      
+      ENDIF   
+      SolnArr_uniq = [SolnArr_uniq, SolnArr_remdup] ; Concatenate with the current unique array        
     ENDFOR
     
     ; Now there may be non-unique solutions with zero components
@@ -120,10 +113,9 @@ FOR i = 0, N_ELEMENTS(indArr[*,0])-1 DO BEGIN
     
     ; Output the unique solution array
 
-    output_solns = OUTPUT_INDIV_SOLUTION( SolnArr_uniq, OutFile )
+    OUTPUT_INDIV_SOLUTION, SolnArr_uniq, OutFile 
     
   ENDIF
-
 ENDFOR
 
 

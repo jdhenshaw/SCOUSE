@@ -1,7 +1,7 @@
 ;+
 ;
 ; PROGRAM NAME:
-;   CREATE SPECTRUM GRID
+;   PLOT SPECTRUM GRID
 ;
 ; PURPOSE:
 ;   plots a grid of spectra
@@ -12,7 +12,7 @@
 ;
 ;-
 
-FUNCTION CREATE_SPECTRUM_GRID, SolnArr, IndArr_trim, x, y, gridtotal, xrange, dim
+PRO PLOT_SPECTRUM_GRID, SolnArr, IndArr_trim, x, y, gridtotal, xrange, dim
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
@@ -28,7 +28,7 @@ WINDOW, xsize = 1200, ysize = 800
 !x.omargin = [30,30]
 !y.margin = [1,1]
 !y.omargin = [10,10]
-!p.background = 'white'
+!p.background = cgColor('white')
 !P.FONT = 1
 
 cgLoadCT, 0, ncolors = 256
@@ -37,7 +37,7 @@ cgLoadCT, 0, ncolors = 256
 
 ; Trim the x axes
 
-ID = WHERE(x GT MIN(xrange) AND x LT MAX(xrange))
+ID     = WHERE(x GT MIN(xrange) AND x LT MAX(xrange))
 x_plot = x[MIN(ID):MAX(ID)]
 y_plot = y[*,*,MIN(ID):MAX(ID)]
 
@@ -46,7 +46,7 @@ y_plot = y[*,*,MIN(ID):MAX(ID)]
 ; Begin the plotting process
 
 FOR i = 0, N_ELEMENTS(IndArr_trim[*,0])-1 DO BEGIN
-  
+
   cind      = IndArr_trim[i,4]
   cind_text = STRING(cind, format='(I10)')
   dmax      = MAX(y[IndArr_trim[i, 2], IndArr_trim[i, 3], *])
@@ -61,11 +61,12 @@ FOR i = 0, N_ELEMENTS(IndArr_trim[*,0])-1 DO BEGIN
   ID = where(SolnArr[*,1] EQ IndArr_trim[i,0] AND SolnArr[*,2] EQ IndArr_trim[i,1])
 
   IF ID[0] NE -1.0 THEN BEGIN
-    gauss_tot = REPLICATE(0.0, N_ELEMENTS(x_plot))
+    gauss_tot = REPLICATE(0d0, N_ELEMENTS(x_plot))
     FOR j = 0, N_ELEMENTS(ID)-1 DO BEGIN
       gauss      = REPLICATE(0.0, N_ELEMENTS(x_plot))
       gauss_tot += SolnArr[ID[j], 3]*exp(-((x_plot-SolnArr[ID[j], 5])^2.0)/$
                   (2.0*SolnArr[ID[j], 7]^2.0))
+                  
       gauss      = SolnArr[ID[j], 3]*exp(-((x_plot-SolnArr[ID[j], 5])^2.0)/$
                   (2.0*SolnArr[ID[j], 7]^2.0))
       OPLOT, x_plot, gauss, color = cgColor('indian red'), thick =2

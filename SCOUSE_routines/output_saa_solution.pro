@@ -12,7 +12,7 @@
 ;
 ;-
 
-FUNCTION OUTPUT_SAA_SOLUTION, indx, SolnArr, x, ResArr, OutFile
+PRO OUTPUT_SAA_SOLUTION, SolnArr, OutFile, dir=dir, indx=indx, x=x, y=y, PRINT_RESID=PR, SAVE_FIG=SF
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
@@ -37,6 +37,17 @@ CLOSE,1
 
 ;------------------------------------------------------------------------------;
 
+If (KEYWORD_SET(PR) && (N_ELEMENTS(dir) NE 0) && (N_ELEMENTS(indx) NE 0) && (N_ELEMENTS(x) NE 0) && (N_ELEMENTS(y) NE 0)) THEN BEGIN
+  OPENW, 1, dir+'residual_'+STRING(indx, format = '(I03)')+'.dat'
+  FOR i = 0, N_ELEMENTS(x)-1 DO BEGIN
+    PRINTF, 1, x[i], y[i]
+  ENDFOR
+  CLOSE,1 
+ENDIF
+
+If (KEYWORD_SET(SF) && (N_ELEMENTS(dir) NE 0) && (N_ELEMENTS(indx) NE 0)) THEN BEGIN
+  screenDump = cgSnapShot(FILENAME=dir+'best_fit_spec_'+STRING(indx, format = '(I03)')+'.png')
+ENDIF
 
 END
 

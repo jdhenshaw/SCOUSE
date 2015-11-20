@@ -12,7 +12,7 @@
 ;
 ;-
 
-FUNCTION OUTPUT_INDIV_SOLUTION, SolnArr, OutFile
+PRO OUTPUT_INDIV_SOLUTION, SolnArr, OutFile
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;

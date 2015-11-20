@@ -1,7 +1,7 @@
 ;+
 ;
 ; PROGRAM NAME:
-;   COVERAGE PLOT
+;   PLOT COVERAGE
 ;
 ; PURPOSE:
 ;   This program creates a plot of the moment zero map and the coverage
@@ -19,21 +19,21 @@
 ;
 ;-
 
-FUNCTION COVERAGE_PLOT, x, y, radius, map, coverage, OutFile
+PRO PLOT_COVERAGE, x, y, map, radius, coverage, OutFile
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
 ; PLOT SETUP
 ;------------------------------------------------------------------------------;
 
-!p.multi=[0,1,1]
-!x.margin=[0,0]
-!y.margin=[0,0]
-!x.omargin=[20,10]
-!y.omargin=[20,10]
-!x.thick=4
-!y.thick =4
-!P.FONT = 0
+!p.multi   = [0,1,1]
+!x.margin  = [0,0]
+!y.margin  = [0,0]
+!x.omargin = [20,10]
+!y.omargin = [20,10]
+!x.thick   = 4
+!y.thick   = 4
+!P.FONT    = 0
 
 SET_PLOT, 'PS'
 IF N_ELEMENTS(x) GT N_ELEMENTS(y) THEN BEGIN
@@ -54,23 +54,12 @@ peak_data = MAX(map)
 
 cgLoadCT, 0, ncolors = 256, /rev
 cgLoadCT, 49, ncolors = 255, bottom = 1
-
 pold_H=!p.multi[0]
-DISP, map, x, y, $
-      /half, /sq, $
-      ystyle = 4, xstyle = 4, pos = position, $
-      /nodisp
+DISP, map, x, y, /half, /sq, ystyle = 4, xstyle = 4, pos = position, /nodisp
 !p.multi[0]=pold_H
-
 cgLoadCT, 0, ncolors = 256
-
-cgColorFill, [x[0],x[-1], x[-1], x[0]], $
-             [y[0], y[0], y[-1], y[-1]], $
-             Color='white' 
-
-DISP, map, x, y, $
-      /half, /sq, $
-      /nodisp, /noerase, pos = position, $
+cgColorFill, [x[0],x[-1], x[-1], x[0]], [y[0], y[0], y[-1], y[-1]], Color='white' 
+DISP, map, x, y, /half, /sq, /nodisp, /noerase, pos = position, $
       ytitle='y', xtitle='x', charthick = 5, charsize=1.8, $
       yminor = 5, yticklen = 0.01,$
       xminor = 5, xticklen = 0.05
@@ -79,8 +68,8 @@ DISP, map, x, y, $
 ; FILLED CONTOUR MAP - OPTIONAL
 ;------------------------------------------------------------------------------;
 
-levels = 7.0
-step = (MAX(map)) / levels
+levels     = 7.0
+step       = (MAX(map)) / levels
 userLevels = INDGEN(levels) * step
   
 cgLoadCT, 49, BOTTOM=0, NCOLORS=6
@@ -106,7 +95,6 @@ CONTOUR, map, x, y, $
 ;------------------------------------------------------------------------------;
 
 READCOL, coverage, format = '(F,F)', cov_xpos, cov_ypos, /silent
-
 FOR i = 0, N_ELEMENTS(cov_xpos)-1 DO BEGIN
   TVBOX, radius*2.0, cov_xpos[i], cov_ypos[i], color=cgColor('black'), $
          thick = 3.0, /data

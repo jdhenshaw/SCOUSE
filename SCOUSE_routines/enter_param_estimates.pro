@@ -13,15 +13,16 @@
 ;
 ;-
 
-FUNCTION ENTER_PARAM_ESTIMATES, x, y, xpos, ypos, rms, n = n
+FUNCTION ENTER_PARAM_ESTIMATES
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
 ; Fit the Gaussian(s)                                                                                                                ;
 ;------------------------------------------------------------------------------;
 
-print, ''
-read, n, prompt = 'Enter number of Gaussians to fit: '
+PRINT, ''
+n = ''
+READ, n, prompt = 'Enter number of Gaussians to fit: '
 
 ;-----------------------------------------------------------------------------;
 ; ENTER PARAMETER GUESSES
@@ -29,22 +30,22 @@ read, n, prompt = 'Enter number of Gaussians to fit: '
 
 
 IF n EQ 0 THEN BEGIN
-  
-  param_estimates = [0.0,0.0,0.0]
+
+  parameter_estimates = [0.0,0.0,0.0]
 
 ENDIF ELSE BEGIN
 
   ; Create an array to contain the users initial guesses to the average spectrum
   
-  estimate_array = REPLICATE(0.d, n,3)
+  estimate_array = REPLICATE(0d0, n,3)
 
-  intensity = REPLICATE(0.d,n)
-  centroid  = REPLICATE(0.d,n)
-  width     = REPLICATE(0.d,n)
+  intensity = REPLICATE(0d0,n)
+  centroid  = REPLICATE(0d0,n)
+  width     = REPLICATE(0d0,n)
 
   ; Create new array with correct order for mpfitfun
 
-  param_estimates = REPLICATE(0.d, N_ELEMENTS(estimate_array[*,0])*N_ELEMENTS(estimate_array[0,*]))
+  parameter_estimates = REPLICATE(0d0, N_ELEMENTS(estimate_array[*,0])*N_ELEMENTS(estimate_array[0,*]))
   
   PRINT, ''
   PRINT, 'Entering guesses for average spectrum...'
@@ -76,13 +77,13 @@ ENDIF ELSE BEGIN
 
   FOR i = 0, N_ELEMENTS(estimate_array[*,0])-1 DO BEGIN
     FOR j = 0, N_ELEMENTS(estimate_array[0,*])-1 DO BEGIN
-      param_estimates[j+i*N_ELEMENTS(estimate_array[0,*])]=estimate_array[i,j]
+      parameter_estimates[j+i*N_ELEMENTS(estimate_array[0,*])]=estimate_array[i,j]
     ENDFOR
   ENDFOR
   
 ENDELSE
 
 ;------------------------------------------------------------------------------;
-RETURN, param_estimates
+RETURN, parameter_estimates
 
 END

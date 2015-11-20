@@ -79,19 +79,24 @@ according to the number of free-parameters.
 
 While AIC does a good job of returning the best-fitting solutions, there are
 areas where the best-fitting solutions can be improved. As such the following
-stages are optional but *highly recommended*. Given the level of user
-interaction, this is the most time-consuming part of the routine.
-Depending on the data a user may wish to perform a few iterations of
-Stages 5-7.
+stages are optional but *highly recommended*.
+
+Given the level of user interaction, this is the most time-consuming part of the
+routine. However, changing the tolerance levels in stage 3 can help. A quick run
+through of stage 5 is recommended to see whether or not the tolerance levels
+should be changed. Once the user is satisfied with the tolerance levels of
+stage 3, a more detailed inspection of the spectra should take place.
+
+Depending on the data a user may wish to perform a few iterations of Stages 5-7.
 
 Stage 5
 =======
 
 	Checking the fits. Here the user is required to check the best-fitting
-	solutions to the spectra. The user enters the indices of spectra that need to
-	be revisited. One can typically expect to re analyse (stage 6) around 5-10%
-	of the fits. However, this is dependent on the complexity of the spectral
-	line profiles.
+	solutions to the spectra. The user enters the indices of spectra that they
+	would like to revisit. One can typically expect to re-analyse (stage 6) around
+	5-10% of the fits. However, this is dependent on the complexity of the
+	spectral line profiles.
 
 Stage 6
 =======
