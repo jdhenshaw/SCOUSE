@@ -1,7 +1,7 @@
 ;+
 ;
 ; NAME:
-;   SCOUSE - Single position
+;   SCOUSE MANUAL FITTING
 ;
 ; PURPOSE:
 ;   This program can be used for a variety of different spectra. 

@@ -34,9 +34,9 @@ Compile_Opt idl2
 ; USER INPUT
 ;------------------------------------------------------------------------------;
 
-datadirectory =  '/Users/Jonathan/Dropbox/Work/CMZ/CMZ_wiggles/Data/test/'  
-filename      =  'APEX_C18O_2014_merge' ; The data cube to be analysed
-fitsfile      =  filename+'.fits' ; fits extension
+datadirectory = ''  
+filename      = '' ; The data cube to be analysed
+fitsfile      = filename+'.fits' ; fits extension
 vunit         = 1000.0
 
 ;------------------------------------------------------------------------------;
