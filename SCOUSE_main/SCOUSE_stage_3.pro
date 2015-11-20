@@ -10,6 +10,11 @@
 ; PURPOSE:
 ;   This program is used to fit the individual spectra associated with each SAA.
 ;
+; USAGE:
+;
+;   SCOUSE requires a .fits file as input. The spectral axis should be in
+;   velocity units.
+;   
 ; OUTPUT:
 ; 
 ;   indiv_solutions_*.dat - Ascii files containing the best-fitting solutions

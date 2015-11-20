@@ -12,6 +12,11 @@
 ;   required to enter indices of the spectra they wish to revisit, either
 ;   to seek an alternative solution or to refit entirely. 
 ;
+; USAGE:
+;
+;   SCOUSE requires a .fits file as input. The spectral axis should be in
+;   velocity units.
+;   
 ; NOTES:
 ; 
 ;   This stage of the process is optional but highly recommended.
