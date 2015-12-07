@@ -32,7 +32,7 @@ units.
 declination. To do this, I have added the option /OFFSETS to the function
 'file_read':
 
-image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA, /OFFSETS )
+  image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA, /OFFSETS )
 
 This needs to be done for stages 1, 2, 3, 5, 6. Depending on your data you may
 wish to do this as well. However, if you do, take a look at the file_read
@@ -99,41 +99,41 @@ whole map. If however, you wish to focus only on a particular region of a larger
 map, the limits can be set accordingly. I have set Rsaa to 40". These input
 values generate the following output:
 
-Number of spectra to fit manually:       19.0000  
-Number of spectra:                       126.000  
+  Number of spectra to fit manually:       19.0000  
+  Number of spectra:                       126.000  
 
 As well as the SCOUSE directory structure which can be found in 'data
 directory':
 
 SCOUSE file structure:  
 
-FILENAME  
-  FIGURES  
-  MISC  
-  STAGE_1  
-    COVERAGE  
-    MOMENTS  
-  STAGE_2  
-    SAA_FIGURES  
-    SAA_RESIDUALS  
-    SAA_SOLUTIONS  
-  STAGE_3  
-    INDIV_RESIDUALS  
-    INDIV_SOLUTIONS  
-  STAGE_4  
-  STAGE_5  
-  STAGE_6  
-  STAGE_7  
+-FILENAME  
+--- FIGURES  
+--- MISC  
+--- STAGE_1  
+------ COVERAGE  
+------ MOMENTS  
+---STAGE_2  
+------ SAA_FIGURES  
+------ SAA_RESIDUALS  
+------ SAA_SOLUTIONS  
+---STAGE_3  
+------ INDIV_RESIDUALS  
+------ INDIV_SOLUTIONS  
+---STAGE_4  
+---STAGE_5  
+---STAGE_6  
+---STAGE_7  
 
 A figure displaying the coverage is created:  
 
-'filename/STAGE_1/COVERAGE/coverage.eps'  
+  'filename/STAGE_1/COVERAGE/coverage.eps'  
 
 This can be used as a guide to tweak the input parameters if necessary. The
 zeroth, first, and second order moments are also generated and provided both in
 text and FITS format in:
 
-'filename/STAGE_1/MOMENTS/'  
+  'filename/STAGE_1/MOMENTS/'  
 
 STAGE 2
 =======
@@ -156,7 +156,7 @@ extracted from a SAA.
 
 Upon running the code the user will be asked:
 
-*"Would you like to choose a new rms window?"*
+  *"Would you like to choose a new rms window?"*
 
 If this is the first spectrum then it is important to define an rms window. For
 all subsequent spectra if this option is not selected SCOUSE will use the window
@@ -167,8 +167,8 @@ SCOUSE will also present the *full* spectrum (not just that defined by vupper
 and vlower in stage 1). The user should try to select a large portion of the
 line-free data. For the tutorial data I select:
 
-Enter lower window limit (km s-1): 10  
-Enter upper window limit (km s-1): 30  
+  Enter lower window limit (km s-1): 10  
+  Enter upper window limit (km s-1): 30  
 
 This window will be shown on the spectrum. If the user is happy SCOUSE will
 move on to fitting the spectra, if not, the window can be redefined.
@@ -185,7 +185,7 @@ process considerably.
 
 Following the fitting process the best fitting solutions can be found in:
 
-'filename/STAGE_2/SAA_SOLUTIONS/SAA_solutions.dat'
+  'filename/STAGE_2/SAA_SOLUTIONS/SAA_solutions.dat'
 
 The output file is organised into the following columns:
 
@@ -310,23 +310,23 @@ a block.
 Using the input parameters I selected in stage 3 led me to selecting the
 following positions for a closer look.
 
-31.47731      7.99993      0.00000     10.00000     10.00000  
-18.48667   -121.99999      1.00000      0.00000     21.00000  
-18.48667   -109.00000      1.00000      1.00000     22.00000  
- 5.49604    124.99986      2.00000     19.00000     61.00000  
- 5.49604    137.99985      2.00000     20.00000     62.00000  
--7.49459    124.99986      3.00000     19.00000     82.00000  
--7.49459    137.99985      3.00000     20.00000     83.00000  
--20.48522    137.99985      4.00000     20.00000    104.00000  
+  31.47731      7.99993      0.00000     10.00000     10.00000  
+  18.48667   -121.99999      1.00000      0.00000     21.00000  
+  18.48667   -109.00000      1.00000      1.00000     22.00000  
+  5.49604    124.99986      2.00000     19.00000     61.00000  
+  5.49604    137.99985      2.00000     20.00000     62.00000  
+  -7.49459    124.99986      3.00000     19.00000     82.00000  
+  -7.49459    137.99985      3.00000     20.00000     83.00000  
+  -20.48522    137.99985      4.00000     20.00000    104.00000  
 
 STAGE 6
 =======
 
-**This stage reads in the file:
+**This stage reads in the file:**
 
-'datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'
+  'datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'
 
-as input. So if you have named the 'outfile' something else in stage 5, or if
+**as input. So if you have named the 'outfile' something else in stage 5, or if
 you have checked the spectra in groups (each with a unique file), the indices
 should be collected into a single file.**
 
@@ -362,23 +362,23 @@ through all of the spectra identified in stage 5. For each spectrum, the current
 solution, as well as all available alternatives is displayed. Alternative
 solutions are available since the SAAs are spaced by R_saa/2.  
 
-To retain the current solution: Enter '-1'  
-To choose an alternative:       Choose one of a,b,c,d...  
-To refit entirely:              Enter nothing  
+  To retain the current solution: Enter '-1'  
+  To choose an alternative:       Choose one of a,b,c,d...  
+  To refit entirely:              Enter nothing  
 
 If the user enters nothing and decides to refit, the refitting process will
 begin immediately.
 
 For the positions selected in stage 5 I selected the following options:
 
-31.47731      7.99993      alternative solution b  
-18.48667   -121.99999      alternative solution a  
-18.48667   -109.00000      refit manually  
- 5.49604    124.99986      refit manually  
- 5.49604    137.99985      refit manually  
--7.49459    124.99986      retain current solution  
--7.49459    137.99985      refit manually  
--20.48522    137.99985     refit manually  
+  31.47731      7.99993      alternative solution b  
+  18.48667   -121.99999      alternative solution a  
+  18.48667   -109.00000      refit manually  
+  5.49604    124.99986      refit manually  
+  5.49604    137.99985      refit manually  
+  -7.49459    124.99986      retain current solution  
+  -7.49459    137.99985      refit manually  
+  -20.48522    137.99985     refit manually  
 
 This produces the following statement:
 
@@ -395,11 +395,11 @@ Stage 7
 This is the final stage of the process and simply used to integrate the
 solutions from stage 6 into the final solution file.
 
-**This stage reads in the file:
+**This stage reads in the file:**
 
-'datadirectory+filename+'/STAGE_6/alternative_solutions.dat'
+  'datadirectory+filename+'/STAGE_6/alternative_solutions.dat'
 
-as input. So if you have named the 'outfile' something else in stage 6, or if
+**as input. So if you have named the 'outfile' something else in stage 6, or if
 you have checked the spectra in groups (each with a unique file), the solutions
 should be collected into a single file.**
 
