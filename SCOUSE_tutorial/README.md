@@ -28,19 +28,19 @@ SCOUSE requires a .fits file as input. The spectral axis should be in velocity.
 The parameter 'vunit' (see SCOUSE stage 1) should be altered depending on the
 units.
 
-**NOTE** For this particular data I have used offset right ascension and
+*For this particular data I have used offset right ascension and
 declination. To do this, I have added the option /OFFSETS to the function
-'file_read':
+'file_read':*
 
   ```IDL
   image = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA, /OFFSETS )
   ```  
 
-This needs to be done for stages 1, 2, 3, 5, 6. Depending on your data you may
+*This needs to be done for stages 1, 2, 3, 5, 6. Depending on your data you may
 wish to do this as well. However, if you do, take a look at the file_read
 function as it requires a reference location (see create_offsets). In the
 tutorial data, the reference location is under 'RA' and 'DEC' in the FITS
-header, but this is likely to be data specific.
+header, but this is likely to be data specific.*
 
 Main stages
 ===========
@@ -173,16 +173,16 @@ SCOUSE will also present the *full* spectrum (not just that defined by vupper
 and vlower in stage 1). The user should try to select a large portion of the
 line-free data. For the tutorial data I select:
 
-**Enter lower window limit (km s-1): 10**  
-**Enter upper window limit (km s-1): 30**  
+**Enter lower window limit (km s-1): 10**
+**Enter upper window limit (km s-1): 30**
 
 This window will be shown on the spectrum. If the user is happy SCOUSE will
 move on to fitting the spectra, if not, the window can be redefined.
 
 The next step is the fitting procedure. The user will be first asked to enter
 the number of Gaussians to fit. You are then required to enter estimates for
-the intensity, centroid velocity, and line-width. **You do not have to be super
-accurate with the estimates**. I find that so long as the velocity is ball-park
+the intensity, centroid velocity, and line-width. *You do not have to be super
+accurate with the estimates*. I find that so long as the velocity is ball-park
 then mpfit will find the best-fitting solution. As an example, for the
 tutorial data I will typically enter '1' and '1' for the intensity and
 line-width and then an integer value for the velocity. Only when I am having
@@ -195,6 +195,7 @@ Following the fitting process the best fitting solutions can be found in:
 
 The output file is organised into the following columns:
 
+```IDL
 1. The number of gaussians fit
 2. X position
 3. Y position
@@ -212,6 +213,7 @@ The output file is organised into the following columns:
 15. Akaike Information Criterion (AIC) value
 16. Spectral rms window lower
 17. Spectral rms window upper
+```
 
 STAGE 3
 =======
@@ -285,8 +287,9 @@ no easy way to do this.
 ;------------------------------------------------------------------------------;  
 
 datadirectory = 'data directory'    
-filename      = 'n2h+10_37'                                                 ; The data cube to be analysed                                             fitsfile      = filename+'.fits'                                            ; fits extension  
-vunit         = 1000.0                                                        
+filename      = 'n2h+10_37'                                                 ; The data cube to be analysed   
+fitsfile      = filename+'.fits'                                            ; fits extension    
+vunit         = 1000.0                                                           
 velrange      = [32.0, 42.0]                                                ; range over which to plot spectra  
 SolnFile      = datadirectory+filename+'/STAGE_4/final_solns.dat'           ;  
 OutFile       = datadirectory+filename+'/STAGE_5/check_spec_indxfile_1.dat' ; **This needs to be updated**  
@@ -311,9 +314,9 @@ case of the tutorial data there are 126 spectra (3 blocks). This can easily be
 done in one sitting. However, I wouldn't recommend doing this when you have
 ~10000 spectra. Here I prefer to check ~ 50 blocks (2450 spectra) at a time,
 which is (slightly) less painful. To do this you should use the 'lower_block'
-and 'upper_block' parameters. **Additionally, the 'Outfile' and 'JOURNAL' files
+and 'upper_block' parameters. *Additionally, the 'Outfile' and 'JOURNAL' files
 should be given unique names for each block, otherwise they will be
-overwritten.**
+overwritten.*
 
 The process itself should be pretty straight-forward. Just enter the index of
 the spectrum you would like to revisit and enter '-1' when you are finished with
@@ -336,17 +339,18 @@ following positions for a closer look.
 STAGE 6
 =======
 
-**This stage reads in the file:**
+*This stage reads in the file:*
 
-  'datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'
+**'datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'**
 
-**as input. So if you have named the 'outfile' something else in stage 5, or if
+*as input. So if you have named the 'outfile' something else in stage 5, or if
 you have checked the spectra in groups (each with a unique file), the indices
-should be collected into a single file.**
+should be collected into a single file.*
 
 This stage is where we take a closer look at those spectra identified during
 stage 5.
 
+```IDL
 ;------------------------------------------------------------------------------;  
 ; USER INPUT  
 ;------------------------------------------------------------------------------;  
@@ -364,44 +368,49 @@ nlower        = 0                                                             ; 
 nupper        = nlines-1                                                      ; Upper spectrum index  
 
 ;------------------------------------------------------------------------------;  
+```
 
 The code will go through each spectrum selected in stage 5. Once again, if there
 is a significant number of spectra to check, I would break the process into
 smaller tasks using the 'nlower' and 'nupper' parameters. I find that checking
-the spectra in blocks of 50 or 100 works. **However, once again remember to give
-each block a unique filename**.
+the spectra in blocks of 50 or 100 works. *However, once again remember to give
+each block a unique filename*.
 
 As with stage 5, this process is user interactive. The program will cycle
 through all of the spectra identified in stage 5. For each spectrum, the current
 solution, as well as all available alternatives is displayed. Alternative
 solutions are available since the SAAs are spaced by R_saa/2.  
 
-  To retain the current solution: Enter '-1'  
-  To choose an alternative:       Choose one of a,b,c,d...  
-  To refit entirely:              Enter nothing  
+**To retain the current solution: Enter '-1'**   
+**To choose an alternative:       Choose one of a,b,c,d...**  
+**To refit entirely:              Enter nothing**    
 
 If the user enters nothing and decides to refit, the refitting process will
 begin immediately.
 
 For the positions selected in stage 5 I selected the following options:
 
-  31.47731      7.99993      alternative solution b  
-  18.48667   -121.99999      alternative solution a  
-  18.48667   -109.00000      refit manually  
-  5.49604    124.99986      refit manually  
-  5.49604    137.99985      refit manually  
-  -7.49459    124.99986      retain current solution  
-  -7.49459    137.99985      refit manually  
-  -20.48522    137.99985     refit manually  
+| X Position | Y Position | Option Selected |
+| ---------- | ---------- | --------------- |
+| 31.47731 | 7.99993 | Alternative solution b |
+| 18.48667 | -121.99999 | Alternative solution a |  
+| 18.48667 | -109.00000 | Refit manually |  
+| 5.49604 | 124.99986 | Refit manually |  
+| 5.49604 | 137.99985 | Refit manually |  
+| -7.49459 | 124.99986 | Retain current solution |  
+| -7.49459 | 137.99985 | Refit manually |  
+| -20.48522 | 137.99985 | Refit manually |  
 
 This produces the following statement:
 
+```IDL
 ;-----------------------------------------------------------------------------;  
 TOTAL NUMBER OF POSITIONS REVISITED:                 8  
 PERCENTAGE NUMBER OF POSITIONS REVISITED:       6.34921  
 TOTAL NUMBER OF POSITIONS REFIT:                5.00000  
 PERCENTAGE NUMBER OF POSITIONS REFIT:           62.5000  
 ;-----------------------------------------------------------------------------;  
+```
 
 Stage 7
 =======
@@ -409,14 +418,15 @@ Stage 7
 This is the final stage of the process and simply used to integrate the
 solutions from stage 6 into the final solution file.
 
-**This stage reads in the file:**
+*This stage reads in the file:*
 
-  'datadirectory+filename+'/STAGE_6/alternative_solutions.dat'
+**'datadirectory+filename+'/STAGE_6/alternative_solutions.dat'**
 
-**as input. So if you have named the 'outfile' something else in stage 6, or if
+*as input. So if you have named the 'outfile' something else in stage 6, or if
 you have checked the spectra in groups (each with a unique file), the solutions
-should be collected into a single file.**
+should be collected into a single file.*
 
+```IDL
 ;------------------------------------------------------------------------------;  
 ; USER INPUT  
 ;------------------------------------------------------------------------------;  
@@ -427,9 +437,11 @@ fitsfile      = filename+'.fits'  ; fits extension
 OutFile       = datadirectory+filename+'/STAGE_7/final_solns_updated.dat'  
 
 ;------------------------------------------------------------------------------;  
+```
 
 The output file is organised into the following columns:  
 
+```IDL
 1. The number of gaussians fit
 2. X position
 3. Y position
@@ -445,6 +457,7 @@ The output file is organised into the following columns:
 13. Number of degrees of freedom
 14. Reduced Chi-squared
 15. Akaike Information Criterion (AIC) value
+```
 
 Statistics
 ==========
@@ -453,6 +466,7 @@ As a final step I have run the program 'SCOUSE_extra/SCOUSE_global_stats.pro'
 to immediately give us some more information on the fitting procedure. This
 output the following:
 
+```IDL
 Total number of positions:                      126  
 Total number of positions in coverage:          126  
 Number of SAAs fit:                              19  
@@ -469,3 +483,4 @@ Sigma: 0th-1st quartile:                     0.11584750      0.42895848
 Sigma: 1st-3rd quartile:                     0.42895848      0.59664214  
 Sigma: 3rd-4th quartile:                     0.59664214       1.0119966  
 Sigma: median:                               0.52417803  
+```
