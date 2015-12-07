@@ -32,7 +32,9 @@ units.
 declination. To do this, I have added the option /OFFSETS to the function
 'file_read':
 
-  image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA, /OFFSETS )
+  ```IDL
+  image = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA, /OFFSETS )
+  ```  
 
 This needs to be done for stages 1, 2, 3, 5, 6. Depending on your data you may
 wish to do this as well. However, if you do, take a look at the file_read
@@ -67,6 +69,7 @@ perform the fitting procedure.
 
 For the tutorial data:
 
+```IDL
 ;------------------------------------------------------------------------------;  
 ; USER INPUT  
 ;------------------------------------------------------------------------------;  
@@ -86,6 +89,7 @@ sigma_cut     =  3                ; Threshold below which all channel values set
 vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s  
 
 ;------------------------------------------------------------------------------;  
+```
 
 Here, vlower and vupper have been set such that we only focus on the isolated
 hyperfine component of the N2H+ (1-0) data. More generally this is a useful
