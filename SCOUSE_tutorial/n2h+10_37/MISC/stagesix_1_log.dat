@@ -1,0 +1,265 @@
+SCOUSE_stage_6
+;MRDFITS: Truncating unused dimensions
+;MRDFITS: Image array (6,21,1000)  Type=Real*4
+;Beginning analysis...
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:      0.920660
+;AIC value:                       137.827
+;Intensity:      0.374 +/-     0.064
+;Centroid:      37.165 +/-     0.027
+;Linewidth:      0.575 +/-     0.087
+;Intensity:      0.606 +/-     0.050
+;Centroid:      37.586 +/-     0.050
+;Linewidth:      1.339 +/-     0.056
+;;------------------------------------------------------------------------------;
+;; ALTERNATIVE SOLUTIONS
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1.29089
+;AIC value:                       185.606
+;Intensity:      0.818 +/-     0.017
+;Centroid:      37.431 +/-     0.013
+;Linewidth:      1.236 +/-     0.030
+;;------------------------------------------------------------------------------;
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; b
+; % Type conversion error: Unable to convert given STRING to Long.
+;You have chosen to select an alternative solution
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       4.85988
+;AIC value:                       681.696
+;Intensity:      0.328 +/-     0.011
+;Centroid:      36.263 +/-     0.067
+;Linewidth:      3.997 +/-     0.158
+;;------------------------------------------------------------------------------;
+;; ALTERNATIVE SOLUTIONS
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;;------------------------------------------------------------------------------;
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; a
+; % Type conversion error: Unable to convert given STRING to Long.
+;You have chosen to select an alternative solution
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       5.22780
+;AIC value:                       732.837
+;Intensity:      0.421 +/-     0.012
+;Centroid:      37.127 +/-     0.028
+;Linewidth:      2.033 +/-     0.066
+;;------------------------------------------------------------------------------;
+;; ALTERNATIVE SOLUTIONS
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;;------------------------------------------------------------------------------;
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; 
+;You have chosen to refit manually
+; 2
+;Entering guesses for average spectrum...
+; 1 34
+; 34
+; 1
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        2.5102775
+;AIC value:                        354.01539
+; 
+;Intensity:      0.195 +/-     0.011
+;Centroid:      35.091 +/-     0.099
+;Linewidth:      2.383 +/-     0.245
+;Intensity:      0.471 +/-     0.016
+;Centroid:      37.383 +/-     0.028
+;Linewidth:      1.345 +/-     0.063
+; yes
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;No alternative solutions available.
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; 
+;You have chosen to refit manually
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:       0.83087007
+;AIC value:                        121.66360
+; 
+;Intensity:      0.248 +/-     0.044
+;Centroid:      38.212 +/-     0.024
+;Linewidth:      0.273 +/-     0.056
+; yes
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;No alternative solutions available.
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; 
+;You have chosen to refit manually
+; 0
+; 
+;Reduced chi-Squared value:        1000.0000
+;AIC value:                        1000.0000
+; 
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+; yes
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:      0.844110
+;AIC value:                       123.504
+;Intensity:      0.338 +/-     0.027
+;Centroid:      38.124 +/-     0.029
+;Linewidth:      0.721 +/-     0.067
+;;------------------------------------------------------------------------------;
+;; ALTERNATIVE SOLUTIONS
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;;------------------------------------------------------------------------------;
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; -1
+;You have chosen to retain the current solution
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;No alternative solutions available.
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; 
+;You have chosen to refit manually
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:       0.91609538
+;AIC value:                        133.50992
+; 
+;Intensity:      0.333 +/-     0.044
+;Centroid:      38.122 +/-     0.046
+;Linewidth:      0.718 +/-     0.109
+; yes
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;No alternative solutions available.
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; 
+;You have chosen to refit manually
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:       0.96486523
+;AIC value:                        140.28893
+; 
+;Intensity:      0.537 +/-     0.046
+;Centroid:      38.057 +/-     0.035
+;Linewidth:      0.822 +/-     0.082
+; yes
+;;-----------------------------------------------------------------------------;
+;TOTAL NUMBER OF POSITIONS REVISITED:                 8
+;PERCENTAGE NUMBER OF POSITIONS REVISITED:       6.34921
+;TOTAL NUMBER OF POSITIONS REFIT:                5.00000
+;PERCENTAGE NUMBER OF POSITIONS REFIT:           62.5000
+;;-----------------------------------------------------------------------------;
+;Time taken:        1.2812488 minutes.

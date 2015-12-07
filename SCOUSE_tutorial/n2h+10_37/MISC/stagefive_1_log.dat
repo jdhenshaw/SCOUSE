@@ -1,0 +1,19 @@
+SCOUSE_stage_5
+;MRDFITS: Truncating unused dimensions
+;MRDFITS: Image array (6,21,1000)  Type=Real*4
+;Beginning analysis...
+;Block:    1 of    3
+; 10
+; 21
+; 22
+; -1
+;Block:    2 of    3
+; 61
+; 62
+; 82
+; 83
+; -1
+;Block:    3 of    3
+; 104
+; -1
+;      126.000 spectra checked in        1.3230786 minutes.

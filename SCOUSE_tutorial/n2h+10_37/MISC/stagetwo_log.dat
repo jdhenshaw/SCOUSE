@@ -1,0 +1,345 @@
+SCOUSE_stage_2
+;Define window for rms calculation...
+; yes
+; 10
+; 30
+; yes
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 34
+; 1
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        2.3451608
+;AIC value:                        331.55951
+; 
+;Intensity:      0.140 +/-     0.009
+;Centroid:      34.980 +/-     0.077
+;Linewidth:      2.098 +/-     0.199
+;Intensity:      0.605 +/-     0.011
+;Centroid:      37.377 +/-     0.014
+;Linewidth:      1.312 +/-     0.033
+; yes
+;Number of spectra fitted:       1.00000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        1.7660700
+;AIC value:                        251.65640
+; 
+;Intensity:      0.601 +/-     0.008
+;Centroid:      37.334 +/-     0.009
+;Linewidth:      1.282 +/-     0.020
+; yes
+;Number of spectra fitted:       2.00000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        1.1051877
+;AIC value:                        159.79376
+; 
+;Intensity:      0.576 +/-     0.009
+;Centroid:      37.402 +/-     0.009
+;Linewidth:      1.249 +/-     0.022
+; yes
+;Number of spectra fitted:       3.00000
+;Define window for rms calculation...
+; 
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 1
+; 39
+; 1
+; 
+;Reduced chi-Squared value:        1.1876872
+;AIC value:                        174.14311
+; 
+;Intensity:      0.703 +/-     0.009
+;Centroid:      37.477 +/-     0.010
+;Linewidth:      1.294 +/-     0.026
+;Intensity:      0.150 +/-     0.011
+;Centroid:      38.902 +/-     0.038
+;Linewidth:      0.816 +/-     0.088
+; yes
+;Number of spectra fitted:       4.00000
+;Define window for rms calculation...
+; 
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 37.5
+; 0.5
+; 1
+; 38.8
+; 0.5
+; 
+;Reduced chi-Squared value:        1.2102886
+;AIC value:                        177.21690
+; 
+;Intensity:      0.617 +/-     0.009
+;Centroid:      37.680 +/-     0.012
+;Linewidth:      1.478 +/-     0.032
+;Intensity:      0.100 +/-     0.015
+;Centroid:      38.988 +/-     0.043
+;Linewidth:      0.579 +/-     0.106
+; yes
+;Number of spectra fitted:       5.00000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:        1.5344159
+;AIC value:                        219.45647
+; 
+;Intensity:      0.413 +/-     0.010
+;Centroid:      37.965 +/-     0.013
+;Linewidth:      1.091 +/-     0.030
+; yes
+;Number of spectra fitted:       6.00000
+;Define window for rms calculation...
+; 
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 34
+; 1
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        1.9420701
+;AIC value:                        276.73919
+; 
+;Intensity:      0.125 +/-     0.009
+;Centroid:      34.972 +/-     0.073
+;Linewidth:      1.825 +/-     0.187
+;Intensity:      0.632 +/-     0.011
+;Centroid:      37.371 +/-     0.013
+;Linewidth:      1.354 +/-     0.031
+; yes
+;Number of spectra fitted:       7.00000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        1.4920540
+;AIC value:                        213.56816
+; 
+;Intensity:      0.556 +/-     0.008
+;Centroid:      37.341 +/-     0.010
+;Linewidth:      1.346 +/-     0.023
+; yes
+;Number of spectra fitted:       8.00000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        1.0303591
+;AIC value:                        149.39258
+; 
+;Intensity:      0.469 +/-     0.008
+;Centroid:      37.398 +/-     0.012
+;Linewidth:      1.334 +/-     0.028
+; yes
+;Number of spectra fitted:       9.00000
+;Define window for rms calculation...
+; 
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 37.5
+; 0.5
+; 1
+; 38.8
+; 0.5
+; 
+;Reduced chi-Squared value:        1.0709836
+;AIC value:                        158.27142
+; 
+;Intensity:      0.555 +/-     0.009
+;Centroid:      37.489 +/-     0.012
+;Linewidth:      1.371 +/-     0.032
+;Intensity:      0.144 +/-     0.012
+;Centroid:      38.933 +/-     0.035
+;Linewidth:      0.744 +/-     0.081
+; yes
+;Number of spectra fitted:       10.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:        1.4259278
+;AIC value:                        204.37662
+; 
+;Intensity:      0.513 +/-     0.007
+;Centroid:      37.788 +/-     0.012
+;Linewidth:      1.714 +/-     0.029
+; yes
+;Number of spectra fitted:       11.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:        1.5964102
+;AIC value:                        228.07368
+; 
+;Intensity:      0.449 +/-     0.009
+;Centroid:      38.000 +/-     0.012
+;Linewidth:      1.143 +/-     0.028
+; yes
+;Number of spectra fitted:       12.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:       0.82398821
+;AIC value:                        120.70702
+; 
+;Intensity:      0.367 +/-     0.019
+;Centroid:      38.054 +/-     0.022
+;Linewidth:      0.859 +/-     0.051
+; yes
+;Number of spectra fitted:       13.0000
+;Define window for rms calculation...
+; 
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 34
+; 1
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        1.2148166
+;AIC value:                        177.83270
+; 
+;Intensity:      0.130 +/-     0.017
+;Centroid:      34.923 +/-     0.052
+;Linewidth:      0.785 +/-     0.122
+;Intensity:      0.680 +/-     0.013
+;Centroid:      37.367 +/-     0.013
+;Linewidth:      1.430 +/-     0.032
+; yes
+;Number of spectra fitted:       14.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:        1.1498881
+;AIC value:                        166.00710
+; 
+;Intensity:      0.473 +/-     0.011
+;Centroid:      37.356 +/-     0.017
+;Linewidth:      1.494 +/-     0.040
+; yes
+;Number of spectra fitted:       15.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:       0.91016396
+;AIC value:                        132.68545
+; 
+;Intensity:      0.261 +/-     0.010
+;Centroid:      37.351 +/-     0.034
+;Linewidth:      1.725 +/-     0.079
+; yes
+;Number of spectra fitted:       16.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 1
+; 
+;Reduced chi-Squared value:       0.97526346
+;AIC value:                        141.73428
+; 
+;Intensity:      0.373 +/-     0.011
+;Centroid:      38.029 +/-     0.027
+;Linewidth:      1.885 +/-     0.063
+; yes
+;Number of spectra fitted:       17.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:        1.1080651
+;AIC value:                        160.19371
+; 
+;Intensity:      0.531 +/-     0.014
+;Centroid:      38.059 +/-     0.015
+;Linewidth:      1.201 +/-     0.036
+; yes
+;Number of spectra fitted:       18.0000
+;Define window for rms calculation...
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 1
+; 
+;Reduced chi-Squared value:       0.96107502
+;AIC value:                        139.76209
+; 
+;Intensity:      0.622 +/-     0.023
+;Centroid:      38.040 +/-     0.016
+;Linewidth:      0.889 +/-     0.038
+; yes
+;Number of spectra fitted:       19.0000
+;Time taken:        2.1467327 minutes.

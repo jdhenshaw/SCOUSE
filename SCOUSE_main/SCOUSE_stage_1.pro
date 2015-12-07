@@ -122,7 +122,7 @@ yupper        =  1000.0           ; The upper limit to the y dimension
 rsaa          =  0.0              ; Radius for the spectral averaging areas. Map units.
 rms_approx    =  0.0              ; Enter an approximate rms value for the data.
 sigma_cut     =  3                ; Threshold below which all channel values set to 0.0
-vunit         =  1000.0              ; if FITS header has units of m/s; conv from m/s to km/s
+vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s
 
 ;------------------------------------------------------------------------------;
 ; CREATE MAIN OUTPUT DIRECTORY AND SUB-DIRECTORIES
@@ -131,8 +131,7 @@ vunit         =  1000.0              ; if FITS header has units of m/s; conv fro
 ;   directory in 'datadirectory'.
 ;   
 ;------------------------------------------------------------------------------;
-
-CD, datadirectory                 
+            
 FILE_MKDIR, datadirectory+filename
 stageone   = 'STAGE_1'
 stagetwo   = 'STAGE_2'

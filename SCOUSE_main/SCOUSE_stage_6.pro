@@ -73,7 +73,7 @@ filename      = ''                                                            ; 
 fitsfile      = filename+'.fits' ; fits extension
 vunit         = 1000.0                                                        ; if FITS header has units of m/s; conv from m/s to km/s
 velrange      = [0.0, 0.0]                                                    ; range over which to plot spectra
-IndxFile      = datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'     ; This needs to be updated
+IndxFile      = datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'     ; The input indices file
 OutFile       = datadirectory+filename+'/STAGE_6/alternative_solutions_1.dat' ; This needs to be updated
 JOURNAL,        datadirectory+filename+'/MISC/stagesix_1_log.dat'             ; This needs to be updated
 nlines        = NUMLINES(IndxFile)

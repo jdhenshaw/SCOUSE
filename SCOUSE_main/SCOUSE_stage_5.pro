@@ -91,14 +91,14 @@ filename      = ''                                                          ; Th
 fitsfile      = filename+'.fits'                                            ; fits extension
 vunit         = 1000.0                                                      ; if FITS header has units of m/s; conv from m/s to km/s
 velrange      = [0.0, 0.0]                                                  ; range over which to plot spectra
-SolnFile      = datadirectory+filename+'/STAGE_4/final_solns.dat'           ; This needs to be updated
+SolnFile      = datadirectory+filename+'/STAGE_4/final_solns.dat'           ; The solution file
 OutFile       = datadirectory+filename+'/STAGE_5/check_spec_indxfile_1.dat' ; This needs to be updated
 JOURNAL,        datadirectory+filename+'/MISC/stagefive_1_log.dat'          ; This needs to be updated
 val           = 49.0                                                        ; Plot 36/49 spectra at a time is reasonable.
 grid_dim      = 7                                                           ; This will plot a 7x7 grid
 nblocks       = NUMBLOCKS( datadirectory, filename, val )
 lower_block   = 0                                                           ; lower block index
-upper_block   = nblocks                                                          ; upper block index. Change to nblocks if you want to check all in one sitting
+upper_block   = nblocks                                                     ; upper block index. Change to nblocks if you want to check all in one sitting
 
 ;------------------------------------------------------------------------------;
 ; FILE INPUT AND AXES CREATION
