@@ -67,9 +67,9 @@ perform the fitting procedure.
 
 For the tutorial data:
 
-;------------------------------------------------------------------------------;
-; USER INPUT
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
+; USER INPUT  
+;------------------------------------------------------------------------------;  
 
 datadirectory =  'data directory'    
 filename      =  'n2h+10_37'      ; The data cube to be analysed  
@@ -85,7 +85,7 @@ rms_approx    =  0.1              ; Enter an approximate rms value for the data.
 sigma_cut     =  3                ; Threshold below which all channel values set to 0.0  
 vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s  
 
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
 
 Here, vlower and vupper have been set such that we only focus on the isolated
 hyperfine component of the N2H+ (1-0) data. More generally this is a useful
@@ -99,55 +99,55 @@ whole map. If however, you wish to focus only on a particular region of a larger
 map, the limits can be set accordingly. I have set Rsaa to 40". These input
 values generate the following output:
 
-Number of spectra to fit manually:       19.0000
-Number of spectra:                       126.000
+Number of spectra to fit manually:       19.0000  
+Number of spectra:                       126.000  
 
 As well as the SCOUSE directory structure which can be found in 'data
 directory':
 
-SCOUSE file structure:
+SCOUSE file structure:  
 
-FILENAME
-  FIGURES
-  MISC
-  STAGE_1
-    COVERAGE
-    MOMENTS
-  STAGE_2
-    SAA_FIGURES
-    SAA_RESIDUALS
-    SAA_SOLUTIONS
-  STAGE_3
-    INDIV_RESIDUALS
-    INDIV_SOLUTIONS
-  STAGE_4
-  STAGE_5
-  STAGE_6
-  STAGE_7
+FILENAME  
+  FIGURES  
+  MISC  
+  STAGE_1  
+    COVERAGE  
+    MOMENTS  
+  STAGE_2  
+    SAA_FIGURES  
+    SAA_RESIDUALS  
+    SAA_SOLUTIONS  
+  STAGE_3  
+    INDIV_RESIDUALS  
+    INDIV_SOLUTIONS  
+  STAGE_4  
+  STAGE_5  
+  STAGE_6  
+  STAGE_7  
 
-A figure displaying the coverage is created:
+A figure displaying the coverage is created:  
 
-'filename/STAGE_1/COVERAGE/coverage.eps'
+'filename/STAGE_1/COVERAGE/coverage.eps'  
 
 This can be used as a guide to tweak the input parameters if necessary. The
 zeroth, first, and second order moments are also generated and provided both in
 text and FITS format in:
 
-'filename/STAGE_1/MOMENTS/'
+'filename/STAGE_1/MOMENTS/'  
 
 STAGE 2
 =======
 
-;------------------------------------------------------------------------------;
-; USER INPUT
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
+; USER INPUT  
+;------------------------------------------------------------------------------;  
 
-datadirectory = 'data directory'  
-filename      = 'n2h+10_37'       ; The data cube to be analysed
-fitsfile      = filename+'.fits'  ; fits extension
-vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s
+datadirectory = 'data directory'    
+filename      = 'n2h+10_37'       ; The data cube to be analysed  
+fitsfile      = filename+'.fits'  ; fits extension  
+vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s  
 
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
 
 The fitting process. This stage is user interactive. For the tutorial data,
 using the above input parameters to stage 1 will result in having to fit 19
@@ -156,7 +156,7 @@ extracted from a SAA.
 
 Upon running the code the user will be asked:
 
-"Would you like to choose a new rms window?"
+*"Would you like to choose a new rms window?"*
 
 If this is the first spectrum then it is important to define an rms window. For
 all subsequent spectra if this option is not selected SCOUSE will use the window
@@ -167,8 +167,8 @@ SCOUSE will also present the *full* spectrum (not just that defined by vupper
 and vlower in stage 1). The user should try to select a large portion of the
 line-free data. For the tutorial data I select:
 
-Enter lower window limit (km s-1): 10
-Enter upper window limit (km s-1): 30
+Enter lower window limit (km s-1): 10  
+Enter upper window limit (km s-1): 30  
 
 This window will be shown on the spectrum. If the user is happy SCOUSE will
 move on to fitting the spectra, if not, the window can be redefined.
@@ -210,22 +210,22 @@ The output file is organised into the following columns:
 STAGE 3
 =======
 
-;------------------------------------------------------------------------------;
-; USER INPUT; CONDITIONAL VALUES - SEE HENSHAW+ 2015
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
+; USER INPUT; CONDITIONAL VALUES - SEE HENSHAW+ 2015  
+;------------------------------------------------------------------------------;  
 
-datadirectory = 'data directory'  
-filename      = 'n2h+10_37'       ; The data cube to be analysed
-fitsfile      = filename+'.fits'  ; fits extension
-vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s
-T1            = 5.0               ; * RMS - minimum intensity of components
-T2            = 3.0               ; * vel res - minimum width of components
-T3            = 3.0               ; Difference in dispersion from relevant component in SAA fit
-T4            = 1.5               ; Difference in velocity from relevant component in SAA fit
-T5            = 0.5               ; Difference in velocity between adjacent components (in units of FWHM)
-velo_res      = 0.07              ; Velocity resolution
+datadirectory = 'data directory'    
+filename      = 'n2h+10_37'       ; The data cube to be analysed  
+fitsfile      = filename+'.fits'  ; fits extension  
+vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s  
+T1            = 5.0               ; * RMS - minimum intensity of components  
+T2            = 3.0               ; * vel res - minimum width of components  
+T3            = 3.0               ; Difference in dispersion from relevant component in SAA fit  
+T4            = 1.5               ; Difference in velocity from relevant component in SAA fit  
+T5            = 0.5               ; Difference in velocity between adjacent components (in units of FWHM)  
+velo_res      = 0.07              ; Velocity resolution  
 
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
 
 This code controls the automated fitting procedure. It takes the best-fitting
 solutions to the SAAs which were extracted in Stage 2, and uses these as input
@@ -239,15 +239,15 @@ accordingly.
 STAGE 4
 =======
 
-;------------------------------------------------------------------------------;
-; USER INPUT
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
+; USER INPUT  
+;------------------------------------------------------------------------------;  
 
-datadirectory = 'data directory'  
-filename      = 'n2h+10_37'      ; The data cube to be analysed
-fitsfile      = filename+'.fits' ; fits extension
+datadirectory = 'data directory'    
+filename      = 'n2h+10_37'      ; The data cube to be analysed  
+fitsfile      = filename+'.fits' ; fits extension  
 
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
 
 This is where the best-fitting solutions are selected. Nothing has to be done
 here as the process is fully-automated.
@@ -269,24 +269,24 @@ solutions to the data. This is true *irrespective* of the method chosen to fit
 the data. Unfortunately, when you have a significant amount of spectra there is
 no easy way to do this.
 
-;------------------------------------------------------------------------------;
-; USER INPUT
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
+; USER INPUT  
+;------------------------------------------------------------------------------;  
 
-datadirectory = 'data directory'  
-filename      = 'n2h+10_37'                                                 ; The data cube to be analysed                                           fitsfile      = filename+'.fits'                                            ; fits extension
-vunit         = 1000.0                                                      
-velrange      = [32.0, 42.0]                                                ; range over which to plot spectra
-SolnFile      = datadirectory+filename+'/STAGE_4/final_solns.dat'           ;
-OutFile       = datadirectory+filename+'/STAGE_5/check_spec_indxfile_1.dat' ; **This needs to be updated**
-JOURNAL,        datadirectory+filename+'/MISC/stagefive_1_log.dat'          ; **This needs to be updated**
-val           = 49.0                                                        ; 36/49 spectra at a time is reasonable.
-grid_dim      = 7                                                           ; This will plot a 7x7 grid
-nblocks       = NUMBLOCKS( datadirectory, filename, val )
-lower_block   = 0                                                           ; lower block index
-upper_block   = nblocks                                                     ; upper block index.
+datadirectory = 'data directory'    
+filename      = 'n2h+10_37'                                                 ; The data cube to be analysed                                             fitsfile      = filename+'.fits'                                            ; fits extension  
+vunit         = 1000.0                                                        
+velrange      = [32.0, 42.0]                                                ; range over which to plot spectra  
+SolnFile      = datadirectory+filename+'/STAGE_4/final_solns.dat'           ;  
+OutFile       = datadirectory+filename+'/STAGE_5/check_spec_indxfile_1.dat' ; **This needs to be updated**  
+JOURNAL,        datadirectory+filename+'/MISC/stagefive_1_log.dat'          ; **This needs to be updated**  
+val           = 49.0                                                        ; 36/49 spectra at a time is reasonable.  
+grid_dim      = 7                                                           ; This will plot a 7x7 grid  
+nblocks       = NUMBLOCKS( datadirectory, filename, val )  
+lower_block   = 0                                                           ; lower block index  
+upper_block   = nblocks                                                     ; upper block index.  
 
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
 
 After running stage 5, the user will be presented with a block of spectra. For
 the tutorial data I have set the velocity range once again to 32.0-42.0 km/s.
@@ -310,14 +310,14 @@ a block.
 Using the input parameters I selected in stage 3 led me to selecting the
 following positions for a closer look.
 
-31.47731      7.99993      0.00000     10.00000     10.00000
-18.48667   -121.99999      1.00000      0.00000     21.00000
-18.48667   -109.00000      1.00000      1.00000     22.00000
- 5.49604    124.99986      2.00000     19.00000     61.00000
- 5.49604    137.99985      2.00000     20.00000     62.00000
--7.49459    124.99986      3.00000     19.00000     82.00000
--7.49459    137.99985      3.00000     20.00000     83.00000
--20.48522    137.99985      4.00000     20.00000    104.00000
+31.47731      7.99993      0.00000     10.00000     10.00000  
+18.48667   -121.99999      1.00000      0.00000     21.00000  
+18.48667   -109.00000      1.00000      1.00000     22.00000  
+ 5.49604    124.99986      2.00000     19.00000     61.00000  
+ 5.49604    137.99985      2.00000     20.00000     62.00000  
+-7.49459    124.99986      3.00000     19.00000     82.00000  
+-7.49459    137.99985      3.00000     20.00000     83.00000  
+-20.48522    137.99985      4.00000     20.00000    104.00000  
 
 STAGE 6
 =======
@@ -333,23 +333,23 @@ should be collected into a single file.**
 This stage is where we take a closer look at those spectra identified during
 stage 5.
 
-;------------------------------------------------------------------------------;
-; USER INPUT
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
+; USER INPUT  
+;------------------------------------------------------------------------------;  
 
-datadirectory = 'data directory'  
-filename      = 'n2h+10_37'                                                   ; The data cube to be analysed
-fitsfile      = filename+'.fits' ; fits extension
-vunit         = 1000.0                                                        
-velrange      = [32.0, 42.0]                                                  ; range over which to plot spectra
-IndxFile      = datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'     ;
-OutFile       = datadirectory+filename+'/STAGE_6/alternative_solutions_1.dat' ; **This needs to be updated**
-JOURNAL,        datadirectory+filename+'/MISC/stagesix_1_log.dat'             ; **This needs to be updated**
-nlines        = NUMLINES(IndxFile)
-nlower        = 0                                                             ; Lower spectrum index
-nupper        = nlines-1                                                      ; Upper spectrum index
+datadirectory = 'data directory'    
+filename      = 'n2h+10_37'                                                   ; The data cube to be analysed  
+fitsfile      = filename+'.fits' ; fits extension  
+vunit         = 1000.0                                                          
+velrange      = [32.0, 42.0]                                                  ; range over which to plot spectra  
+IndxFile      = datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'     ;  
+OutFile       = datadirectory+filename+'/STAGE_6/alternative_solutions_1.dat' ; **This needs to be updated**  
+JOURNAL,        datadirectory+filename+'/MISC/stagesix_1_log.dat'             ; **This needs to be updated**  
+nlines        = NUMLINES(IndxFile)  
+nlower        = 0                                                             ; Lower spectrum index  
+nupper        = nlines-1                                                      ; Upper spectrum index  
 
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
 
 The code will go through each spectrum selected in stage 5. Once again, if there
 is a significant number of spectra to check, I would break the process into
@@ -360,34 +360,34 @@ each block a unique filename**.
 As with stage 5, this process is user interactive. The program will cycle
 through all of the spectra identified in stage 5. For each spectrum, the current
 solution, as well as all available alternatives is displayed. Alternative
-solutions are available since the SAAs are spaced by R_saa/2.
+solutions are available since the SAAs are spaced by R_saa/2.  
 
-To retain the current solution: Enter '-1'
-To choose an alternative:       Choose one of a,b,c,d...
-To refit entirely:              Enter nothing
+To retain the current solution: Enter '-1'  
+To choose an alternative:       Choose one of a,b,c,d...  
+To refit entirely:              Enter nothing  
 
 If the user enters nothing and decides to refit, the refitting process will
 begin immediately.
 
 For the positions selected in stage 5 I selected the following options:
 
-31.47731      7.99993      alternative solution b
-18.48667   -121.99999      alternative solution a
-18.48667   -109.00000      refit manually
- 5.49604    124.99986      refit manually
- 5.49604    137.99985      refit manually
--7.49459    124.99986      retain current solution
--7.49459    137.99985      refit manually
--20.48522    137.99985     refit manually
+31.47731      7.99993      alternative solution b  
+18.48667   -121.99999      alternative solution a  
+18.48667   -109.00000      refit manually  
+ 5.49604    124.99986      refit manually  
+ 5.49604    137.99985      refit manually  
+-7.49459    124.99986      retain current solution  
+-7.49459    137.99985      refit manually  
+-20.48522    137.99985     refit manually  
 
 This produces the following statement:
 
-;-----------------------------------------------------------------------------;
-TOTAL NUMBER OF POSITIONS REVISITED:                 8
-PERCENTAGE NUMBER OF POSITIONS REVISITED:       6.34921
-TOTAL NUMBER OF POSITIONS REFIT:                5.00000
-PERCENTAGE NUMBER OF POSITIONS REFIT:           62.5000
-;-----------------------------------------------------------------------------;
+;-----------------------------------------------------------------------------;  
+TOTAL NUMBER OF POSITIONS REVISITED:                 8  
+PERCENTAGE NUMBER OF POSITIONS REVISITED:       6.34921  
+TOTAL NUMBER OF POSITIONS REFIT:                5.00000  
+PERCENTAGE NUMBER OF POSITIONS REFIT:           62.5000  
+;-----------------------------------------------------------------------------;  
 
 Stage 7
 =======
@@ -403,18 +403,18 @@ as input. So if you have named the 'outfile' something else in stage 6, or if
 you have checked the spectra in groups (each with a unique file), the solutions
 should be collected into a single file.**
 
-;------------------------------------------------------------------------------;
-; USER INPUT
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
+; USER INPUT  
+;------------------------------------------------------------------------------;  
 
-datadirectory = 'data directory'
-filename      = 'n2h+10_37'       ; The data cube to be analysed
-fitsfile      = filename+'.fits'  ; fits extension
-OutFile       = datadirectory+filename+'/STAGE_7/final_solns_updated.dat'
+datadirectory = 'data directory'  
+filename      = 'n2h+10_37'       ; The data cube to be analysed  
+fitsfile      = filename+'.fits'  ; fits extension  
+OutFile       = datadirectory+filename+'/STAGE_7/final_solns_updated.dat'  
 
-;------------------------------------------------------------------------------;
+;------------------------------------------------------------------------------;  
 
-The output file is organised into the following columns:
+The output file is organised into the following columns:  
 
 1. The number of gaussians fit
 2. X position
@@ -439,19 +439,19 @@ As a final step I have run the program 'SCOUSE_extra/SCOUSE_global_stats.pro'
 to immediately give us some more information on the fitting procedure. This
 output the following:
 
-Total number of positions:                      126
-Total number of positions in coverage:          126
-Number of SAAs fit:                              19
-Number of positions fit:                     107.000
-Total number of components:                     122
-Number of components per position:           1.14019
-Mean reduced chisq value:                    1.30710
-Mean sigma_resid/sigma_rms:                  1.07815
+Total number of positions:                      126  
+Total number of positions in coverage:          126  
+Number of SAAs fit:                              19  
+Number of positions fit:                     107.000  
+Total number of components:                     122  
+Number of components per position:           1.14019  
+Mean reduced chisq value:                    1.30710  
+Mean sigma_resid/sigma_rms:                  1.07815  
 
-Max intensity:                              0.982230
-Min intensity:                              0.195290
+Max intensity:                              0.982230  
+Min intensity:                              0.195290  
 
-Sigma: 0th-1st quartile:                     0.11584750      0.42895848
-Sigma: 1st-3rd quartile:                     0.42895848      0.59664214
-Sigma: 3rd-4th quartile:                     0.59664214       1.0119966
-Sigma: median:                               0.52417803
+Sigma: 0th-1st quartile:                     0.11584750      0.42895848  
+Sigma: 1st-3rd quartile:                     0.42895848      0.59664214  
+Sigma: 3rd-4th quartile:                     0.59664214       1.0119966  
+Sigma: median:                               0.52417803  
