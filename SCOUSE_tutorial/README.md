@@ -103,8 +103,8 @@ whole map. If however, you wish to focus only on a particular region of a larger
 map, the limits can be set accordingly. I have set Rsaa to 40". These input
 values generate the following output:
 
-  Number of spectra to fit manually:       19.0000  
-  Number of spectra:                       126.000  
+  **Number of spectra to fit manually:       19.0000**  
+  **Number of spectra:                       126.000**    
 
 As well as the SCOUSE directory structure which can be found in 'data
 directory':
@@ -131,17 +131,18 @@ SCOUSE file structure:
 
 A figure displaying the coverage is created:  
 
-  'filename/STAGE_1/COVERAGE/coverage.eps'  
+**'filename/STAGE_1/COVERAGE/coverage.eps'**
 
 This can be used as a guide to tweak the input parameters if necessary. The
 zeroth, first, and second order moments are also generated and provided both in
 text and FITS format in:
 
-  'filename/STAGE_1/MOMENTS/'  
+**'filename/STAGE_1/MOMENTS/'**
 
 STAGE 2
 =======
 
+```IDL
 ;------------------------------------------------------------------------------;  
 ; USER INPUT  
 ;------------------------------------------------------------------------------;  
@@ -152,6 +153,7 @@ fitsfile      = filename+'.fits'  ; fits extension
 vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s  
 
 ;------------------------------------------------------------------------------;  
+```
 
 The fitting process. This stage is user interactive. For the tutorial data,
 using the above input parameters to stage 1 will result in having to fit 19
@@ -171,8 +173,8 @@ SCOUSE will also present the *full* spectrum (not just that defined by vupper
 and vlower in stage 1). The user should try to select a large portion of the
 line-free data. For the tutorial data I select:
 
-  Enter lower window limit (km s-1): 10  
-  Enter upper window limit (km s-1): 30  
+**Enter lower window limit (km s-1): 10**  
+**Enter upper window limit (km s-1): 30**  
 
 This window will be shown on the spectrum. If the user is happy SCOUSE will
 move on to fitting the spectra, if not, the window can be redefined.
@@ -189,7 +191,7 @@ process considerably.
 
 Following the fitting process the best fitting solutions can be found in:
 
-  'filename/STAGE_2/SAA_SOLUTIONS/SAA_solutions.dat'
+**'filename/STAGE_2/SAA_SOLUTIONS/SAA_solutions.dat'**
 
 The output file is organised into the following columns:
 
@@ -214,6 +216,7 @@ The output file is organised into the following columns:
 STAGE 3
 =======
 
+```IDL
 ;------------------------------------------------------------------------------;  
 ; USER INPUT; CONDITIONAL VALUES - SEE HENSHAW+ 2015  
 ;------------------------------------------------------------------------------;  
@@ -230,6 +233,7 @@ T5            = 0.5               ; Difference in velocity between adjacent comp
 velo_res      = 0.07              ; Velocity resolution  
 
 ;------------------------------------------------------------------------------;  
+```
 
 This code controls the automated fitting procedure. It takes the best-fitting
 solutions to the SAAs which were extracted in Stage 2, and uses these as input
@@ -243,6 +247,7 @@ accordingly.
 STAGE 4
 =======
 
+```IDL
 ;------------------------------------------------------------------------------;  
 ; USER INPUT  
 ;------------------------------------------------------------------------------;  
@@ -252,6 +257,7 @@ filename      = 'n2h+10_37'      ; The data cube to be analysed
 fitsfile      = filename+'.fits' ; fits extension  
 
 ;------------------------------------------------------------------------------;  
+```
 
 This is where the best-fitting solutions are selected. Nothing has to be done
 here as the process is fully-automated.
@@ -273,6 +279,7 @@ solutions to the data. This is true *irrespective* of the method chosen to fit
 the data. Unfortunately, when you have a significant amount of spectra there is
 no easy way to do this.
 
+```IDL
 ;------------------------------------------------------------------------------;  
 ; USER INPUT  
 ;------------------------------------------------------------------------------;  
@@ -291,6 +298,7 @@ lower_block   = 0                                                           ; lo
 upper_block   = nblocks                                                     ; upper block index.  
 
 ;------------------------------------------------------------------------------;  
+```
 
 After running stage 5, the user will be presented with a block of spectra. For
 the tutorial data I have set the velocity range once again to 32.0-42.0 km/s.
@@ -314,14 +322,16 @@ a block.
 Using the input parameters I selected in stage 3 led me to selecting the
 following positions for a closer look.
 
-  31.47731      7.99993      0.00000     10.00000     10.00000  
-  18.48667   -121.99999      1.00000      0.00000     21.00000  
-  18.48667   -109.00000      1.00000      1.00000     22.00000  
-  5.49604    124.99986      2.00000     19.00000     61.00000  
-  5.49604    137.99985      2.00000     20.00000     62.00000  
-  -7.49459    124.99986      3.00000     19.00000     82.00000  
-  -7.49459    137.99985      3.00000     20.00000     83.00000  
-  -20.48522    137.99985      4.00000     20.00000    104.00000  
+| X position | Y position | X indx | Y indx | Combined indx |
+| ---------- | ---------- | ------ | ------ | ------------- |
+| 31.47731 | 7.99993 | 0.00000 | 10.00000 | 10.00000 |  
+| 18.48667 | -121.99999 | 1.00000 | 0.00000 | 21.00000 |    
+| 18.48667 | -109.00000 | 1.00000 | 1.00000 | 22.00000 |    
+| 5.49604  | 124.99986 | 2.00000 | 19.00000 | 61.00000 |    
+| 5.49604  | 137.99985 | 2.00000 | 20.00000 | 62.00000 |    
+| -7.49459 | 124.99986 | 3.00000 | 19.00000 | 82.00000 |    
+| -7.49459 | 137.99985 | 3.00000 | 20.00000 | 83.00000 |    
+| -20.48522 | 137.99985 | 4.00000 | 20.00000 | 104.00000 |    
 
 STAGE 6
 =======
