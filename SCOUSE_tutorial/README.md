@@ -103,8 +103,10 @@ whole map. If however, you wish to focus only on a particular region of a larger
 map, the limits can be set accordingly. I have set Rsaa to 40". These input
 values generate the following output:
 
-  **Number of spectra to fit manually:       19.0000**  
-  **Number of spectra:                       126.000**    
+```IDL
+; Number of spectra to fit manually:       19.0000
+; Number of spectra:                       126.000
+```    
 
 As well as the SCOUSE directory structure which can be found in 'data
 directory':
@@ -173,8 +175,10 @@ SCOUSE will also present the *full* spectrum (not just that defined by vupper
 and vlower in stage 1). The user should try to select a large portion of the
 line-free data. For the tutorial data I select:
 
-**Enter lower window limit (km s-1): 10**
-**Enter upper window limit (km s-1): 30**
+```IDL
+; Enter lower window limit (km s-1): 10
+; Enter upper window limit (km s-1): 30
+```
 
 This window will be shown on the spectrum. If the user is happy SCOUSE will
 move on to fitting the spectra, if not, the window can be redefined.
@@ -196,23 +200,23 @@ Following the fitting process the best fitting solutions can be found in:
 The output file is organised into the following columns:
 
 ```IDL
-1. The number of gaussians fit
-2. X position
-3. Y position
-4. Peak intensity
-5. Uncertainty
-6. Centroid velocity
-7. Uncertainty
-8. FWHM line-width
-9. Uncertainty
-10. Spectral rms
-11. Residual
-12. Chi-squared value
-13. Number of degrees of freedom
-14. Reduced Chi-squared
-15. Akaike Information Criterion (AIC) value
-16. Spectral rms window lower
-17. Spectral rms window upper
+; 1. The number of gaussians fit
+; 2. X position
+; 3. Y position
+; 4. Peak intensity
+; 5. Uncertainty
+; 6. Centroid velocity
+; 7. Uncertainty
+; 8. FWHM line-width
+; 9. Uncertainty
+; 10. Spectral rms
+; 11. Residual
+; 12. Chi-squared value
+; 13. Number of degrees of freedom
+; 14. Reduced Chi-squared
+; 15. Akaike Information Criterion (AIC) value
+; 16. Spectral rms window lower
+; 17. Spectral rms window upper
 ```
 
 STAGE 3
@@ -287,7 +291,7 @@ no easy way to do this.
 ;------------------------------------------------------------------------------;  
 
 datadirectory = 'data directory'    
-filename      = 'n2h+10_37'                                                 ; The data cube to be analysed   
+filename      = 'n2h+10_37'                                                 ; The data cube to be analysed  
 fitsfile      = filename+'.fits'                                            ; fits extension    
 vunit         = 1000.0                                                           
 velrange      = [32.0, 42.0]                                                ; range over which to plot spectra  
@@ -327,14 +331,14 @@ following positions for a closer look.
 
 | X position | Y position | X indx | Y indx | Combined indx |
 | ---------- | ---------- | ------ | ------ | ------------- |
-| 31.47731 | 7.99993 | 0.00000 | 10.00000 | 10.00000 |  
-| 18.48667 | -121.99999 | 1.00000 | 0.00000 | 21.00000 |    
-| 18.48667 | -109.00000 | 1.00000 | 1.00000 | 22.00000 |    
-| 5.49604  | 124.99986 | 2.00000 | 19.00000 | 61.00000 |    
-| 5.49604  | 137.99985 | 2.00000 | 20.00000 | 62.00000 |    
-| -7.49459 | 124.99986 | 3.00000 | 19.00000 | 82.00000 |    
-| -7.49459 | 137.99985 | 3.00000 | 20.00000 | 83.00000 |    
-| -20.48522 | 137.99985 | 4.00000 | 20.00000 | 104.00000 |    
+| 31.47731 | 7.99993 | 0 | 10 | 10 |  
+| 18.48667 | -121.99999 | 1 | 0 | 21 |    
+| 18.48667 | -109.00000 | 1 | 1 | 22 |    
+| 5.49604  | 124.99986 | 2 | 19 | 61 |    
+| 5.49604  | 137.99985 | 2 | 20 | 62 |    
+| -7.49459 | 124.99986 | 3 | 19 | 82 |    
+| -7.49459 | 137.99985 | 3 | 20 | 83 |    
+| -20.48522 | 137.99985 | 4 | 20 | 104 |    
 
 STAGE 6
 =======
@@ -357,7 +361,7 @@ stage 5.
 
 datadirectory = 'data directory'    
 filename      = 'n2h+10_37'                                                   ; The data cube to be analysed  
-fitsfile      = filename+'.fits' ; fits extension  
+fitsfile      = filename+'.fits'                                              ; fits extension  
 vunit         = 1000.0                                                          
 velrange      = [32.0, 42.0]                                                  ; range over which to plot spectra  
 IndxFile      = datadirectory+filename+'/STAGE_5/check_spec_indxfile.dat'     ;  
@@ -381,9 +385,11 @@ through all of the spectra identified in stage 5. For each spectrum, the current
 solution, as well as all available alternatives is displayed. Alternative
 solutions are available since the SAAs are spaced by R_saa/2.  
 
-**To retain the current solution: Enter '-1'**   
-**To choose an alternative:       Choose one of a,b,c,d...**  
-**To refit entirely:              Enter nothing**    
+```IDL
+; To retain the current solution: Enter '-1'
+; To choose an alternative:       Choose one of a,b,c,d...
+; To refit entirely:              Enter nothing
+```
 
 If the user enters nothing and decides to refit, the refitting process will
 begin immediately.
@@ -405,10 +411,10 @@ This produces the following statement:
 
 ```IDL
 ;-----------------------------------------------------------------------------;  
-TOTAL NUMBER OF POSITIONS REVISITED:                 8  
-PERCENTAGE NUMBER OF POSITIONS REVISITED:       6.34921  
-TOTAL NUMBER OF POSITIONS REFIT:                5.00000  
-PERCENTAGE NUMBER OF POSITIONS REFIT:           62.5000  
+; TOTAL NUMBER OF POSITIONS REVISITED:                 8  
+; PERCENTAGE NUMBER OF POSITIONS REVISITED:       6.34921  
+; TOTAL NUMBER OF POSITIONS REFIT:                5.00000  
+; PERCENTAGE NUMBER OF POSITIONS REFIT:           62.5000  
 ;-----------------------------------------------------------------------------;  
 ```
 
@@ -442,21 +448,21 @@ OutFile       = datadirectory+filename+'/STAGE_7/final_solns_updated.dat'
 The output file is organised into the following columns:  
 
 ```IDL
-1. The number of gaussians fit
-2. X position
-3. Y position
-4. Peak intensity
-5. Uncertainty
-6. Centroid velocity
-7. Uncertainty
-8. FWHM line-width
-9. Uncertainty
-10. Spectral rms
-11. Residual
-12. Chi-squared value
-13. Number of degrees of freedom
-14. Reduced Chi-squared
-15. Akaike Information Criterion (AIC) value
+; 1. The number of gaussians fit
+; 2. X position
+; 3. Y position
+; 4. Peak intensity
+; 5. Uncertainty
+; 6. Centroid velocity
+; 7. Uncertainty
+; 8. FWHM line-width
+; 9. Uncertainty
+; 10. Spectral rms
+; 11. Residual
+; 12. Chi-squared value
+; 13. Number of degrees of freedom
+; 14. Reduced Chi-squared
+; 15. Akaike Information Criterion (AIC) value
 ```
 
 Statistics
@@ -467,20 +473,20 @@ to immediately give us some more information on the fitting procedure. This
 output the following:
 
 ```IDL
-Total number of positions:                      126  
-Total number of positions in coverage:          126  
-Number of SAAs fit:                              19  
-Number of positions fit:                     107.000  
-Total number of components:                     122  
-Number of components per position:           1.14019  
-Mean reduced chisq value:                    1.30710  
-Mean sigma_resid/sigma_rms:                  1.07815  
-
-Max intensity:                              0.982230  
-Min intensity:                              0.195290  
-
-Sigma: 0th-1st quartile:                     0.11584750      0.42895848  
-Sigma: 1st-3rd quartile:                     0.42895848      0.59664214  
-Sigma: 3rd-4th quartile:                     0.59664214       1.0119966  
-Sigma: median:                               0.52417803  
+; Total number of positions:             126  
+; Total number of positions in coverage: 126  
+; Number of SAAs fit:                    19  
+; Number of positions fit:               107  
+; Total number of components:            122  
+; Number of components per position:     1.14019  
+; Mean reduced chisq value:              1.30710  
+; Mean sigma_resid/sigma_rms:            1.07815  
+;
+; Max intensity:                         0.982230  
+; Min intensity:                         0.195290  
+;
+; Sigma: 0th-1st quartile:               0.11584750      0.42895848  
+; Sigma: 1st-3rd quartile:               0.42895848      0.59664214  
+; Sigma: 3rd-4th quartile:               0.59664214       1.0119966  
+; Sigma: median:                         0.52417803  
 ```
