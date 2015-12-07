@@ -71,19 +71,19 @@ For the tutorial data:
 ; USER INPUT
 ;------------------------------------------------------------------------------;
 
-datadirectory =  'data directory'  
-filename      =  'n2h+10_37'      ; The data cube to be analysed
-fitsfile      =  filename+'.fits' ; fits extension
-vlower        =  32.0             ; The lower limit to the velocity
-vupper        =  42.0             ; The upper limit to the velocity
-xlower        = -1000.0           ; The lower limit to the x dimension
-xupper        =  1000.0           ; The upper limit to the x dimension
-ylower        = -1000.0           ; The lower limit to the y dimension
-yupper        =  1000.0           ; The upper limit to the y dimension
-rsaa          =  40.0             ; Radius for the spectral averaging areas. Map units.
-rms_approx    =  0.1              ; Enter an approximate rms value for the data.
-sigma_cut     =  3                ; Threshold below which all channel values set to 0.0
-vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s
+datadirectory =  'data directory'    
+filename      =  'n2h+10_37'      ; The data cube to be analysed  
+fitsfile      =  filename+'.fits' ; fits extension  
+vlower        =  32.0             ; The lower limit to the velocity  
+vupper        =  42.0             ; The upper limit to the velocity  
+xlower        = -1000.0           ; The lower limit to the x dimension  
+xupper        =  1000.0           ; The upper limit to the x dimension  
+ylower        = -1000.0           ; The lower limit to the y dimension  
+yupper        =  1000.0           ; The upper limit to the y dimension  
+rsaa          =  40.0             ; Radius for the spectral averaging areas. Map units.  
+rms_approx    =  0.1              ; Enter an approximate rms value for the data.  
+sigma_cut     =  3                ; Threshold below which all channel values set to 0.0  
+vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s  
 
 ;------------------------------------------------------------------------------;
 
