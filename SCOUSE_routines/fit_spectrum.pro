@@ -32,7 +32,7 @@ result          = MPFITFUN('gaussfunc', x, y, err_y, parameter_estimates, $
 
 chisqred        = totalchisq/(dof-1)
 AIC             = CALCULATE_AIC(N_ELEMENTS(parameter_estimates)/3, x, totalchisq )
-residual        = STDDEV(bres*err_y )
+residual        = STDDEV( bres*err_y )
 residual_array  = ( bres*err_y )
 SolnArr         = REPLICATE(0d0, N_ELEMENTS(parameter_estimates)/3, 15)
 

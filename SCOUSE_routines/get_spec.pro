@@ -27,9 +27,9 @@ Compile_Opt idl2
 
 y = REPLICATE(0d0, N_ELEMENTS(x))
 FOR k = 0, N_ELEMENTS(y)-1 DO BEGIN
-  y[k] = TOTAL(im[ID_x,ID_y,k])
+  y[k] = TOTAL(im[ID_x,ID_y,k], /NAN)
 ENDFOR
-y = y/(N_ELEMENTS(ID_x)*N_ELEMENTS(ID_y))
+y = y/(FLOAT(N_ELEMENTS(ID_x))*FLOAT(N_ELEMENTS(ID_y)))
 
 ;------------------------------------------------------------------------------;
 

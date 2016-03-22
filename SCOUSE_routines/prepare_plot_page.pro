@@ -37,16 +37,16 @@ plot_rsaa_spec = PLOT_SPECTRUM( x, y, MIN(x), MAX(x), 'X AXIS', 'Y AXIS', window
 ;-----------------------------------------------------------------------------;
 
 pold_H=!p.multi[0]
-PolyFill, [windowpos[2]+0.008,windowpos[2]+0.008,windowpos[2]+0.261, $
+POLYFILL, [windowpos[2]+0.008,windowpos[2]+0.008,windowpos[2]+0.261, $
            windowpos[2]+0.261], $
           [windowpos[1],windowpos[3],windowpos[3],windowpos[1]], $
-           COLOR=FSC_COLOR('black'), /normal, thick=2
+           COLOR=CGCOLOR('black'), /normal, thick=2
 !p.multi[0]=pold_H ;
 pold_H=!p.multi[0]
-PolyFill, [windowpos[2]+0.01,windowpos[2]+0.01,windowpos[2]+0.26, $
+POLYFILL, [windowpos[2]+0.01,windowpos[2]+0.01,windowpos[2]+0.26, $
            windowpos[2]+0.26], [windowpos[1]+0.002,windowpos[3]-0.002,$
            windowpos[3]-0.002,windowpos[1]+0.002], $
-           COLOR=FSC_COLOR('white'), /normal
+           COLOR=CGCOLOR('white'), /normal
 !p.multi[0]=pold_H
 
 ;-----------------------------------------------------------------------------;

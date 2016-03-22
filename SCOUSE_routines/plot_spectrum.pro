@@ -27,12 +27,12 @@ pold_H=!p.multi[0]
 PLOT, x, y, $
       xrange = [xrange_l, xrange_u], yrange=[min(y)-diff, max(y)+diff], $
       position = windowpos, $
-      ps = 10, color = cgcolor('black'), $
+      ps = 10, color = CGCOLOR('black'), $
       xtitle = xtitle, ytitle = ytitle, charsize=1.5, $
       /nodata, /noerase
 !p.multi[0]=pold_H
 
-OPLOT, x, y, color = cgcolor('black'), thick = 1, ps=10
+OPLOT, x, y, color = CGCOLOR('black'), thick = 1, ps=10
 
 ;------------------------------------------------------------------------------;
 

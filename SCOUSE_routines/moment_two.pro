@@ -14,6 +14,8 @@
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
+;   Updated - 01/03/16 - JDH - fixed indexing issue. 
+; 
 ;-
 
 FUNCTION MOMENT_TWO, data, x, y, z, err_y, thresh, OutFile=OutFile, PrintToFile=PTF
@@ -32,9 +34,10 @@ indices   = ARRAY_INDICES(data, ID)
 
 datamom[indices[0,*],indices[1,*],indices[2,*]]=data[indices[0,*],indices[1,*],indices[2,*]]
 FOR i = 0, N_ELEMENTS(x)-1 DO BEGIN
-  FOR j = 0, N_ELEMENTS(y)-1 DO BEGIN    
-    momone[i,j] = (TOTAL(datamom[i,j,WHERE(datamom[i,j,*] NE 0.0)]*z[WHERE(datamom[i,j,*] NE 0.0)]*chanwidth))/(TOTAL(datamom[i,j,WHERE(datamom[i,j,*] NE 0.0)]*chanwidth))    
-    momtwo[i,j] = SQRT((TOTAL(datamom[i,j,WHERE(datamom[i,j,*] NE 0.0)]*(z[WHERE(datamom[i,j,*] NE 0.0)]-momone[i,j])*(z[WHERE(datamom[i,j,*] NE 0.0)]-momone[i,j])*chanwidth))/(TOTAL(datamom[i,j,WHERE(datamom[i,j,*] NE 0.0)]*chanwidth)))
+  FOR j = 0, N_ELEMENTS(y)-1 DO BEGIN 
+    ID = WHERE(datamom[i,j,*] NE 0.0, IDcount)
+    IF IDcount EQ 0.0 THEN momone[i,j] = 0.0 ELSE momone[i,j] = (TOTAL(datamom[i,j,ID]*z[ID]*chanwidth))/(TOTAL(datamom[i,j,ID]*chanwidth))   
+    IF IDcount EQ 0.0 THEN momtwo[i,j] = 0.0 ELSE momtwo[i,j] = SQRT((TOTAL(datamom[i,j,ID]*(z[ID]-momone[i,j])*(z[ID]-momone[i,j])*chanwidth))/(TOTAL(datamom[i,j,ID]*chanwidth)))
   endfor
 endfor
 

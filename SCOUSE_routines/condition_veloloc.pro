@@ -61,7 +61,7 @@ IF (c NE 0.0) THEN BEGIN
   IF TOTAL(parameter_estimates) EQ 0.0 THEN BEGIN
     conditional_array = -1.0
   ENDIF ELSE BEGIN
-    parameter_estimates = parameter_estimates[WHERE(parameter_estimates ne 0.0)]
+    parameter_estimates = parameter_estimates[WHERE(parameter_estimates NE 0.0)]
   ENDELSE
 ENDIF ELSE BEGIN
   conditional_array[2] = 0.0

@@ -24,7 +24,7 @@ OPENW, 1, OutFile, width = 200
 CLOSE, 1
 FOR i = 0, ncov-1 DO BEGIN
   SolnArr      = 0.0
-  File=Dir+'indiv_solutions_'+string(i,format='(I03)')+'.dat'  
+  File=Dir+'indiv_solutions_'+STRING(i,format='(I03)')+'.dat'  
   READCOL, File, n, xpos, ypos, int, sint, vel, svel, fwhm, sfwhm, rms, resid, totchisq, dof, chisqred, AIC, nlines=nfits, /silent
   SolnArr      = [[n],[xpos],[ypos],[int],[sint],[vel],[svel],[fwhm],[sfwhm],[rms],[resid],[totchisq],[dof],[chisqred],[AIC]]             
   OUTPUT_INDIV_SOLUTION, SolnArr, OutFile           

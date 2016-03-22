@@ -44,6 +44,8 @@
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
 ;
+;   Updated - 03/03/16 - JDH - Updated the main routine. If no data found within 
+;                              SAA limits, no fitting performed.
 ;
 ;-
 
@@ -121,31 +123,37 @@ FOR i = 0, N_ELEMENTS(coverage_x)-1 DO BEGIN
  
   ID_x           = WHERE(x_axis LT coverage_x[i]+rsaa AND x_axis GT coverage_x[i]-rsaa)   ; Identify the positions associated with each coverage area
   ID_y           = WHERE(y_axis LT coverage_y[i]+rsaa AND y_axis GT coverage_y[i]-rsaa)  
-  spec_y         = GET_SPEC( data, spec_x, ID_x, ID_y)                                    ; Create a spatatially-averaged spectrum
-  spec_y_rms     = GET_SPEC( data_rms, spec_x_rms, ID_x, ID_y)                                                     
-  rms_window_val = RMS_WINDOW(spec_x_rms, spec_y_rms, coverage_x[i], coverage_y[i], temp_file)  
-  spectral_rms   = CALCULATE_RMS( spec_x_rms, spec_y_rms, rms_window_val )                             
-  err_spec_y     = REPLICATE(spectral_rms, N_ELEMENTS(spec_y))                            ; Create an array containing the rms level           
   
-  ; Begin fitting process
+  IF ID_x[0] NE -1.0 AND ID_y[0] NE -1.0 THEN BEGIN
 
-  SolnArr        = FIT_MANUAL( spec_x, spec_x_rms, spec_y, spec_y_rms, err_spec_y, coverage_x[i], coverage_y[i], residual_array=ResArr) 
-  SolnArr_rmswin = REPLICATE(0d0, N_ELEMENTS(SolnArr[*,0]), 17)
-  
-  FOR j = 0, N_ELEMENTS( SolnArr[*,0] )-1 DO BEGIN
-    FOR k = 0, N_ELEMENTS( SolnArr[0,*] )-1 DO SolnArr_rmswin[j,k] = SolnArr[j,k]
-  ENDFOR
-  SolnArr        = SolnArr_rmswin
-  SolnArr[*,15]  = rms_window_val[0]
-  SolnArr[*,16]  = rms_window_val[1]  
-  
-  OUTPUT_SAA_SOLUTION, SolnArr, SAA_solnFile                                            ; Print to the output file                                  
-   
-  ncount = ncount+1.0
-  
-  PRINT, '' 
-  PRINT, 'Number of spectra fitted: ', ncount                                           ; Print the number of spectra fitted
-  PRINT, ''
+    spec_y         = GET_SPEC( data, spec_x, ID_x, ID_y)                                    ; Create a spatatially-averaged spectrum
+    spec_y_rms     = GET_SPEC( data_rms, spec_x_rms, ID_x, ID_y)
+    rms_window_val = RMS_WINDOW(spec_x_rms, spec_y_rms, coverage_x[i], coverage_y[i], temp_file)
+    spectral_rms   = CALCULATE_RMS( spec_x_rms, spec_y_rms, rms_window_val )
+    err_spec_y     = REPLICATE(spectral_rms, N_ELEMENTS(spec_y))                            ; Create an array containing the rms level
+
+    ; Begin fitting process
+
+    SolnArr        = FIT_MANUAL( spec_x, spec_x_rms, spec_y, spec_y_rms, err_spec_y, coverage_x[i], coverage_y[i], residual_array=ResArr)
+    SolnArr_rmswin = REPLICATE(0d0, N_ELEMENTS(SolnArr[*,0]), 17)
+
+    FOR j = 0, N_ELEMENTS( SolnArr[*,0] )-1 DO BEGIN
+      FOR k = 0, N_ELEMENTS( SolnArr[0,*] )-1 DO SolnArr_rmswin[j,k] = SolnArr[j,k]
+    ENDFOR
+    SolnArr        = SolnArr_rmswin
+    SolnArr[*,15]  = rms_window_val[0]
+    SolnArr[*,16]  = rms_window_val[1]
+
+    OUTPUT_SAA_SOLUTION, SolnArr, SAA_solnFile                                            ; Print to the output file
+
+    ncount = ncount+1.0
+
+    PRINT, ''
+    PRINT, 'Number of spectra fitted: ', ncount                                           ; Print the number of spectra fitted
+    PRINT, ''
+  ENDIF ELSE BEGIN
+    print, 'No suitable spectra found within Rsaa limits - check inputs.dat'
+  ENDELSE
 ENDFOR
 
 ;------------------------------------------------------------------------------;

@@ -40,8 +40,8 @@ ENDIF
 ; The final condition is implemented if there are multiple spectral components
 ; identified. 
 
-IF TOTAL(parameter_estimates) EQ 0.0 THEN parameter_estimates = 0.0
-IF TOTAL(conditional_array) EQ 0.0 AND N_ELEMENTS(parameter_estimates)/3 GT 1 THEN BEGIN
+IF TOTAL(parameter_estimates, /NAN) EQ 0.0 THEN parameter_estimates = 0.0
+IF TOTAL(conditional_array, /NAN) EQ 0.0 AND N_ELEMENTS(parameter_estimates)/3 GT 1 THEN BEGIN
    parameter_estimates = CONDITION_VELDIFF( parameter_estimates, SolnArr, tolerances ) ; FOURTH CONDITION
 ENDIF 
 

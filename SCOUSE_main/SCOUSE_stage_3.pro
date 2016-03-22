@@ -18,7 +18,7 @@
 ; OUTPUT:
 ; 
 ;   indiv_solutions_*.dat - Ascii files containing the best-fitting solutions
-;     to all spectra contained within the relevant SAA. The columns are:
+;   to all spectra contained within the relevant SAA. The columns are:
 ;     
 ;     number of components, xpos, ypos, intensity, err_intensity, centroid vel,
 ;     err_centroid vel, FWHM, err_FWHM, spectral rms, residual, total chisq,
@@ -37,7 +37,9 @@
 ;
 ; REVISION HISTORY:
 ;   Written by Jonathan D. Henshaw, 2015
-;
+; 
+;   Updated - 21/03/16 - JDH - Updated the main routine. Now includes fail safe
+;                              for spectra channel values = NAN.  
 ;
 ;-
 
@@ -142,28 +144,27 @@ FOR i = 0, nlines-1 DO BEGIN
   
     ; Begin fitting process
     
-    FOR k = 0, n_elements(ID_x)-1 DO BEGIN
-      FOR l = 0, n_elements(ID_y)-1 DO BEGIN 
+    FOR k = 0, N_ELEMENTS(ID_x)-1 DO BEGIN
+      FOR l = 0, N_ELEMENTS(ID_y)-1 DO BEGIN 
         
         spec_y         = GET_SPEC( data, spec_x, ID_x[k], ID_y[l])
         spec_y_rms     = GET_SPEC( data_rms, spec_x_rms, ID_x[k], ID_y[l])
         spectral_rms   = CALCULATE_RMS( spec_x_rms, spec_y_rms, rms_window_val )
         err_spec_y     = REPLICATE(spectral_rms, N_ELEMENTS(spec_y))    
         param_est_init = REPLICATE(0d0, N_ELEMENTS(SaaSoln[*,0])*3.0) ; Initial guesses - SAA solution
-      
-        IF SaaSoln[0,0] EQ 0.0 THEN BEGIN
-          param_est_init = [0.0,0.0,0.0]
-        ENDIF ELSE BEGIN
-          FOR j = 0, N_ELEMENTS(SaaSoln[*,0])-1 DO BEGIN
-            param_est_init[(j*3.0)]     = SaaSoln[j,3]
-            param_est_init[(j*3.0)+1.0] = SaaSoln[j,5]
-            param_est_init[(j*3.0)+2.0] = SaaSoln[j,7]/(2.0*SQRT(2.0*ALOG(2.0))) 
-          ENDFOR
-        ENDELSE
-    
+        IF TOTAL(spec_y_rms) NE 0.0 THEN BEGIN
+          IF SaaSoln[0,0] EQ 0.0 THEN BEGIN
+            param_est_init = [0.0,0.0,0.0]
+          ENDIF ELSE BEGIN
+            FOR j = 0, N_ELEMENTS(SaaSoln[*,0])-1 DO BEGIN
+              param_est_init[(j*3.0)]     = SaaSoln[j,3]
+              param_est_init[(j*3.0)+1.0] = SaaSoln[j,5]
+              param_est_init[(j*3.0)+2.0] = SaaSoln[j,7]/(2.0*SQRT(2.0*ALOG(2.0))) 
+            ENDFOR
+          ENDELSE
+        ENDIF 
         SolnArr = FIT_AUTO( spec_x, spec_y, err_spec_y, x_axis[ID_x[k]], y_axis[ID_y[l]], param_est_init, TolArr, residual_array=ResArr )       
-        OUTPUT_INDIV_SOLUTION, SolnArr, indiv_file 
-       
+        OUTPUT_INDIV_SOLUTION, SolnArr, indiv_file      
       ENDFOR
     ENDFOR 
   ENDIF

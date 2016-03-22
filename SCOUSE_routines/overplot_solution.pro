@@ -30,11 +30,11 @@ xtextpos = windowpos[2]+0.02
 ytextpos = windowpos[3]-0.05
 inc      = 0.05
 
-cgText, xtextpos, ytextpos-5.0*inc, '!4v!X!U 2!N!D red!N = '+chisqred_text,$
+CGTEXT, xtextpos, ytextpos-5.0*inc, '!4v!X!U 2!N!D red!N = '+chisqred_text,$
   COLOR='navy', charsize = 1.2, /normal
-cgText, xtextpos, ytextpos-6.0*inc, 'resid = ' + resid_text + ' units', $
+CGTEXT, xtextpos, ytextpos-6.0*inc, 'resid = ' + resid_text + ' units', $
   COLOR='navy', charsize = 1.2, /normal
-cgText, xtextpos, ytextpos-4.0*inc, n+' components', $
+CGTEXT, xtextpos, ytextpos-4.0*inc, n+' components', $
   COLOR='navy', charsize = 1.2, /normal
 
 ; If no component fit is selected then plot the residuals, else plot the best 
@@ -42,7 +42,7 @@ cgText, xtextpos, ytextpos-4.0*inc, n+' components', $
 
 IF SolnArr[0,0] EQ 0.0 THEN BEGIN
 
-  cgPlot, x, y, ps = 10, color = cgColor('green'), thick = 1, /over
+  CGPLOT, x, y, ps = 10, color = CGCOLOR('green'), thick = 1, /over
 
 ENDIF ELSE BEGIN
   dummy_x = (FINDGEN(6001)-3000)*0.1
@@ -55,10 +55,10 @@ ENDIF ELSE BEGIN
     gauss      = SolnArr[i,3]*EXP(-(((dummy_x-SolnArr[i,5])^2.)/$
                  (2.*(SolnArr[i,7]/(2.0*SQRT(2.0*ALOG(2.0))))^2.)))
                  
-    cgPlot, dummy_x, gauss, color = cgColor('indian red'), thick = 2, /over
+    CGPLOT, dummy_x, gauss, color = CGCOLOR('indian red'), thick = 2, /over
   ENDFOR
-  cgPlot, dummy_x, gauss_tot, color = cgColor('dodger blue'), thick = 2, /over
-  cgPlot, x, residual_array, ps =10, color = cgColor('green'), thick = 1, /over
+  CGPLOT, dummy_x, gauss_tot, color = CGCOLOR('dodger blue'), thick = 2, /over
+  CGPLOT, x, residual_array, ps = 10, color = CGCOLOR('green'), thick = 1, /over
   
 ENDELSE
 

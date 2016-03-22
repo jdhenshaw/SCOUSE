@@ -25,14 +25,14 @@ DiffArr    = REPLICATE(0d0, n)
 
 FOR i = 0, n-1 DO BEGIN
   
-  IF param_temp[i] ne -1.0 THEN BEGIN
+  IF param_temp[i] NE -1.0 THEN BEGIN
     
     FOR j = 0, n-1 DO BEGIN 
-      DiffArr[j] = abs(SolnArr[i,5]-SolnArr[j,5])     
+      DiffArr[j] = ABS(SolnArr[i,5]-SolnArr[j,5])     
     ENDFOR
     
     ; Where the diffarr = 0.0 set to 1000.0
-    DiffArr[where(DiffArr eq 0.0)] = 1000.0 
+    DiffArr[WHERE(DiffArr EQ 0.0)] = 1000.0 
     
     ; Find the index of the minimum
     ID_minimum = WHERE(DiffArr EQ MIN(DiffArr))
@@ -92,7 +92,7 @@ ENDFOR
 ID_REJECT = WHERE(parameter_estimates EQ 0.0, c)
 
 IF (c NE 0.0) AND TOTAL(parameter_estimates) NE 0.0 THEN BEGIN
-  parameter_estimates = parameter_estimates[WHERE(parameter_estimates ne 0.0)]
+  parameter_estimates = parameter_estimates[WHERE(parameter_estimates NE 0.0)]
 ENDIF
 
 ;------------------------------------------------------------------------------;
