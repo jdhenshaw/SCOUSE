@@ -78,7 +78,7 @@ residdirectory  = datadirectory+filename+'/STAGE_3/INDIV_RESIDUALS/'
 
 image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA )   
 z_axis = z_axis/vunit            
-data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, image_rms=data_rms, z_rms=z_axis_rms, header=HDR_NEW, /OFFSETS )                            
+data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, image_rms=data_rms, z_rms=z_axis_rms, header=HDR_NEW )                            
 READCOL, input_file, inputs, /silent
 rsaa = inputs[6]  
 READCOL, cov_coordfile, coverage_x, coverage_y, nlines=nlines, /silent
