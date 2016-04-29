@@ -31,11 +31,14 @@ Markwardt IDL:
 
 http://purl.com/net/mpfit
 
+Note that SCOUSE was developed in IDL 8.3. It is possible that there may be some
+issues for IDL 7 users. 
+
 Terms of use
 ============
 
 If you use SCOUSE please cite the paper in which it is presented:
-Henshaw et al. 2016, MNRAS accepted, arXiv:1601.03732
+Henshaw et al. 2016, MNRAS, 457, 2675
 
 Information
 ===========
