@@ -32,7 +32,7 @@ Markwardt IDL:
 http://purl.com/net/mpfit
 
 Note that SCOUSE was developed in IDL 8.3. It is possible that there may be some
-issues for IDL 7 users. 
+issues for IDL 7 users.
 
 Terms of use
 ============
@@ -42,6 +42,9 @@ Henshaw et al. 2016, MNRAS, 457, 2675
 
 Information
 ===========
+
+Important: XQuartz update causing SCOUSE to crash...problem (and fix) outlined
+here http://blogs.qub.ac.uk/screenshotsfromtheedge/2016/10/25/xquartz-2-7-10-and-libxt-motif-idl/
 
 The method is broken down into seven stages. The codes used to implement each
 stage of the process can be found in the directory SCOUSE/SCOUSE_main.
