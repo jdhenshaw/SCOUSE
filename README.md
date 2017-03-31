@@ -8,8 +8,11 @@ About
 =====
 
 SCOUSE is a spectral line fitting algorithm. The current version fits Gaussian
-files to spectral line emission. Please refer to Henshaw et al. 2016
-(http://ukads.nottingham.ac.uk/abs/2016arXiv160103732H) for further information.
+files to spectral line emission. Please refer to
+[Henshaw et al. 2016](http://ukads.nottingham.ac.uk/abs/2016arXiv160103732H)
+for further information.
+
+<img src="docs/source/Figure_cartoon.png"  alt="" width = "850" />
 
 Installation
 ============
