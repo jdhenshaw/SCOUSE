@@ -60,6 +60,7 @@ datadirectory = ''
 filename      = ''                ; The data cube to be analysed
 fitsfile      = filename+'.fits'  ; fits extension
 vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s
+iunit         =  1.0              ; conv from jy/beam to mjy/beam ; set to 1 if not required.
 
 ;------------------------------------------------------------------------------;
 ; FILE INPUT AND AXES CREATION
@@ -80,7 +81,7 @@ temp_file     = datadirectory+filename+'/MISC/tmp.dat'
 
 image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA )   
 z_axis = z_axis/vunit            
-data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, image_rms=data_rms, z_rms=z_axis_rms, header=HDR_NEW )                                            
+data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, iunit, image_rms=data_rms, z_rms=z_axis_rms, header=HDR_NEW )                                            
 READCOL, cov_coordfile, format = '(F,F)', coverage_x, coverage_y, /silent
 READCOL, input_file, inputs, /silent
 rsaa   = inputs[6]

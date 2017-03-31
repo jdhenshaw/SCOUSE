@@ -123,6 +123,7 @@ rsaa          =  0.0              ; Radius for the spectral averaging areas. Map
 rms_approx    =  0.0              ; Enter an approximate rms value for the data.
 sigma_cut     =  3                ; Threshold below which all channel values set to 0.0
 vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s
+iunit         =  1.0              ; conv from jy/beam to mjy/beam ; set to 1 if not required.
 
 ;------------------------------------------------------------------------------;
 ; CREATE MAIN OUTPUT DIRECTORY AND SUB-DIRECTORIES
@@ -207,7 +208,7 @@ CLOSE,  1
 
 image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA )              
 z_axis = z_axis/vunit
-data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, image_rms=data_rms, z_rms=z_axis_rms, header_new=HDR_NEW) 
+data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, iunit, image_rms=data_rms, z_rms=z_axis_rms, header_new=HDR_NEW) 
               
 ;==============================================================================;
 ; BEGIN ANALYSIS

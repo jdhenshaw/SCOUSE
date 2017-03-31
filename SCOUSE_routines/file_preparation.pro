@@ -18,7 +18,7 @@
 ;
 ;-
 
-FUNCTION FILE_PREPARATION, image, x, y, z, header, info, vunit, $
+FUNCTION FILE_PREPARATION, image, x, y, z, header, info, vunit, iunit, $
                            image_rms=image_rms, z_rms=z_rms, header_new=header_new
 Compile_Opt idl2
 
@@ -76,6 +76,10 @@ SXADDPAR, header_new, 'NAXIS2', N_ELEMENTS(y)
 SXADDPAR, header_new, 'NAXIS3', N_ELEMENTS(z)
 
 ;------------------------------------------------------------------------------;
+
+image     = image*iunit
+image_rms = image_rms*iunit
+
 RETURN, image
 
 END

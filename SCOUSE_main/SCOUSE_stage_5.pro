@@ -90,6 +90,7 @@ datadirectory = ''
 filename      = ''                                                          ; The data cube to be analysed
 fitsfile      = filename+'.fits'                                            ; fits extension
 vunit         = 1000.0                                                      ; if FITS header has units of m/s; conv from m/s to km/s
+iunit         =  1.0                                                        ; conv from jy/beam to mjy/beam ; set to 1 if not required.
 velrange      = [0.0, 0.0]                                                  ; range over which to plot spectra
 SolnFile      = datadirectory+filename+'/STAGE_4/final_solns.dat'           ; The solution file
 OutFile       = datadirectory+filename+'/STAGE_5/check_spec_indxfile_1.dat' ; This needs to be updated
@@ -113,7 +114,7 @@ coordfile     = datadirectory+filename+'/MISC/coords_coverage.dat'
 
 image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA )   
 z_axis = z_axis/vunit            
-data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, image_rms=data_rms, z_rms=z_axis_rms, header=HDR_NEW )           
+data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, iunit, image_rms=data_rms, z_rms=z_axis_rms, header=HDR_NEW )           
 READCOL, coordfile, x, y, xindx, yindx, combindx, nlines=nlines, /silent
 READCOL, SolnFile, n, xpos, ypos, int, sint, vel, svel, fwhm, sfwhm, rms, resid, totchisq, dof, chisqred, AIC, nlines=nfits, /silent                                    
 OPENW,1, OutFile, width=100 ; Prepare the output file

@@ -33,6 +33,8 @@ beam_min  = SXPAR(header,'BMIN')     ; Beam size minor axis
 beam_pa   = SXPAR(header,'BPA')      ; Beam position angle
 bunit     = SXPAR(header,'BUNIT')    ; Units for data
 restfreq  = SXPAR(header,'RESTFREQ') ; Rest frequency in Hz
+x0        = SXPAR(header,'CRVAL1')
+y0        = SXPAR(header,'CRVAL2')
 
 IF naxis EQ 2.0 THEN BEGIN             ; Continuum data
   
@@ -47,9 +49,10 @@ IF naxis EQ 2.0 THEN BEGIN             ; Continuum data
   crval2 = SXPAR(header,'CRVAL2')    ; Coord value for y-axis reference pixel
   ctype2 = SXPAR(header,'CTYPE2')    ; Co-ordinate system for y-axis
   
-  x = (cdelt1*(FINDGEN(naxis1)+1-crpix1))+crval1 ; Create the axes
+  x = ((cdelt1*(FINDGEN(naxis1)+1-crpix1))/COS(y0*((2.0*!pi)/360.0)))+crval1 ; Create the axes
   y = (cdelt2*(FINDGEN(naxis2)+1-crpix2))+crval2
   z = -1
+  
   
 ENDIF ELSE BEGIN ; Spectral line data
 
@@ -75,8 +78,6 @@ ENDIF ELSE BEGIN ; Spectral line data
 ENDELSE
 
 IF (KEYWORD_SET(offpos)) THEN BEGIN
-  x0 = SXPAR(header,'CRVAL1')
-  y0 = SXPAR(header,'CRVAL2')
   CREATE_OFFSETS, x, y, x0, y0, x_off=x_off, y_off=y_off
   x = x_off
   y = y_off
