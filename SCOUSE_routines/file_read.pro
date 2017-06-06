@@ -72,7 +72,7 @@ ENDIF ELSE BEGIN ; Spectral line data
   crval3 = SXPAR(header,'CRVAL3')    ; Value for velocity axis reference pixel 
   ctype3 = SXPAR(header,'CTYPE3')    ; Co-ordinate system for z-axis 
 
-  x = (cdelt1*(FINDGEN(naxis1)+1-crpix1))+crval1 ; Create the axes
+  x = ((cdelt1*(FINDGEN(naxis1)+1-crpix1))/COS(y0*((2.0*!pi)/360.0)))+crval1 ; Create the axes
   y = (cdelt2*(FINDGEN(naxis2)+1-crpix2))+crval2
   z = (cdelt3*(FINDGEN(naxis3)+1-crpix3))+crval3
 ENDELSE
