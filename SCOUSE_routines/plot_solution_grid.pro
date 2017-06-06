@@ -134,6 +134,16 @@ ENDFOR
 
 ;------------------------------------------------------------------------------;
 
+SolnArr[*,7]   = SolnArr[*,7]*conv_FWHM2disp
+SolnArr[*,8]   = SolnArr[*,8]*conv_FWHM2disp
+
+IF TOTAL(SolnArr_alt) NE -1.0 THEN BEGIN
+  SolnArr_alt[*,7] = SolnArr_alt[*,7]*conv_FWHM2disp
+  SolnArr_alt[*,8] = SolnArr_alt[*,8]*conv_FWHM2disp
+ENDIF
+
+;------------------------------------------------------------------------------;
+
 XYOUTS, 0.08, 0.37, 'Unique alternatives', $
         color=cgColor('black'), align = 0.5, orientation = 90.0, $
         charthick = 1, charsize = 4.0, $
