@@ -50,8 +50,7 @@ JUNE 2016
 
 **Important: Work around for issue with coordinates - added keyword optional
 "/PIXELS" to file_read.pro - this will output pixel values instead of absolute
-coordinates or offset coordinates. This keyword is available in release v0.1.1.
-**
+coordinates or offset coordinates. This keyword is available in release v0.1.1.**
 
 **Users are strongly advised to make use of either the /OFFSETS or /PIXELS
 keywords in 'file_read' and to double-check the output. Although this issue does
