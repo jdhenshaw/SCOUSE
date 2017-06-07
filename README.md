@@ -43,8 +43,8 @@ Terms of use
 If you use SCOUSE please cite the paper in which it is presented:
 Henshaw et al. 2016, MNRAS, 457, 2675
 
-Information
-===========
+Important Information
+=====================
 
 JUNE 2016
 
@@ -61,6 +61,9 @@ DECEMBER 2016
 
 **Important: XQuartz update causing SCOUSE to crash...problem (and fix) outlined
 here http://blogs.qub.ac.uk/screenshotsfromtheedge/2016/10/25/xquartz-2-7-10-and-libxt-motif-idl/**
+
+Description
+===========
 
 The method is broken down into seven stages. The codes used to implement each
 stage of the process can be found in the directory SCOUSE/SCOUSE_main.
