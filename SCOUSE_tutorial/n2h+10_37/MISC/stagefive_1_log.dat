@@ -1,19 +1,38 @@
-SCOUSE_stage_5
+; IDL Version 8.3, Mac OS X (darwin x86_64 m64)
+; Journal File for Jonathan@Jonathans-MBP-3
+; Working directory: /Users/Jonathan
+; Date: Wed Jun  7 17:01:13 2017
+ 
+;MRDFITS: Truncating unused dimensions
+;MRDFITS: Image array (6,21,1000)  Type=Real*4
+;Beginning analysis...
+;Block:    1 of    2
+; 10
+; 16
+; 21
+; 22
+; -1
+;Block:    2 of    2
+; d
+; % Program caused arithmetic error: Floating divide by 0
+/Users/Jonathan/Dropbox/Work/Code/GitHub/SCOUSE/SCOUSE_tutorial/n2h+10_37/MISC/stagefive_1_log.dat
 ;MRDFITS: Truncating unused dimensions
 ;MRDFITS: Image array (6,21,1000)  Type=Real*4
 ;Beginning analysis...
 ;Block:    1 of    3
 ; 10
+; 16
 ; 21
 ; 22
 ; -1
 ;Block:    2 of    3
-; 61
-; 62
-; 82
+; 54
 ; 83
+; 90
+; 91
+; 93
 ; -1
 ;Block:    3 of    3
 ; 104
 ; -1
-;      126.000 spectra checked in        1.3230786 minutes.
+;      122.000 spectra checked in       0.83788752 minutes.

@@ -28,7 +28,7 @@ spacing = radius/2.0
 nposx   = ROUND(ABS(MAX(xrange)-MIN(xrange))/radius)+1.0  ; Number of SAAs within xrange
 nposy   = ROUND(ABS(MAX(yrange)-MIN(yrange))/radius)+1.0  ; Number of SAAs within yrange
 cov_x   = MAX(xrange)-radius*FINDGEN(nposx)               ; x location of SAAs
-cov_y   = MIN(yrange)+radius*FINDGEN(nposy)               ; x location of SAAs
+cov_y   = MIN(yrange)+radius*FINDGEN(nposy)               ; y location of SAAs
 
 nareas  = 0.0
 OPENW, 1, OutFile  

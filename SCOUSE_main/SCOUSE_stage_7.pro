@@ -40,9 +40,9 @@ Compile_Opt idl2
 ; USER INPUT
 ;------------------------------------------------------------------------------;
 
-datadirectory = ''
-filename      = ''                ; The data cube to be analysed
-fitsfile      = filename+'.fits'  ; fits extension
+datadirectory = ''  
+filename      = ''               ; The data cube to be analysed
+fitsfile      = filename+'.fits' ; fits extension
 OutFile       = datadirectory+filename+'/STAGE_7/final_solns_updated.dat'
 
 ;------------------------------------------------------------------------------;
@@ -51,7 +51,7 @@ OutFile       = datadirectory+filename+'/STAGE_7/final_solns_updated.dat'
 
 coordfile     = datadirectory+filename+'/MISC/coords_coverage.dat'
 final_solns   = datadirectory+filename+'/STAGE_4/final_solns.dat'
-alt_solns     = datadirectory+filename+'/STAGE_6/alternative_solutions.dat'
+alt_solns     = datadirectory+filename+'/STAGE_6/alternative_solutions_1.dat'
 
 ;------------------------------------------------------------------------------;
 ;

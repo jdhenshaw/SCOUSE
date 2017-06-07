@@ -16,7 +16,7 @@
 ;   
 ;-
 
-FUNCTION FILE_READ, dir, file, x=x, y=y, z=z, header = header, OFFSETS=offpos
+FUNCTION FILE_READ, dir, file, x=x, y=y, z=z, header = header, OFFSETS=offpos, PIXELS=pix
 Compile_Opt idl2
 
 ;------------------------------------------------------------------------------;
@@ -81,6 +81,11 @@ IF (KEYWORD_SET(offpos)) THEN BEGIN
   CREATE_OFFSETS, x, y, x0, y0, x_off=x_off, y_off=y_off
   x = x_off
   y = y_off
+ENDIF
+
+IF (KEYWORD_SET(pix)) THEN BEGIN
+  x = FINDGEN(naxis1)
+  y = FINDGEN(naxis2)
 ENDIF
 
 ;------------------------------------------------------------------------------;

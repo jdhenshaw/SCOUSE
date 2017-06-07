@@ -43,11 +43,27 @@ Terms of use
 If you use SCOUSE please cite the paper in which it is presented:
 Henshaw et al. 2016, MNRAS, 457, 2675
 
-Information
-===========
+Important Information
+=====================
+
+JUNE 2016
+
+**Important: Work around for issue with coordinates - added keyword optional
+"/PIXELS" to file_read.pro - this will output pixel values instead of absolute
+coordinates or offset coordinates. This keyword is available in release v0.1.1.**
+
+**Users are strongly advised to make use of either the /OFFSETS or /PIXELS
+keywords in 'file_read' and to double-check the output. Although this issue does
+not affect the fitting process it can affect the output coordinates
+(see issues).**
+
+DECEMBER 2016
 
 **Important: XQuartz update causing SCOUSE to crash...problem (and fix) outlined
 here http://blogs.qub.ac.uk/screenshotsfromtheedge/2016/10/25/xquartz-2-7-10-and-libxt-motif-idl/**
+
+Description
+===========
 
 The method is broken down into seven stages. The codes used to implement each
 stage of the process can be found in the directory SCOUSE/SCOUSE_main.

@@ -52,10 +52,10 @@ Compile_Opt idl2
 
 
 datadirectory = ''  
-filename      = '         '       ; The data cube to be analysed
+filename      = ''                ; The data cube to be analysed
 fitsfile      = filename+'.fits'  ; fits extension
 vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s
-iunit         =  1.0              ; conv from jy/beam to mjy/beam ; set to 1 if not required.
+iunit         = 1.0               ; conv from jy/beam to mjy/beam ; set to 1 if not required.
 T1            = 0.0               ; * RMS - minimum intensity of components
 T2            = 0.0               ; * vel res - minimum width of components 
 T3            = 0.0               ; Difference in dispersion from relevent component in SAA fit
@@ -84,7 +84,7 @@ READCOL, input_file, inputs, /silent
 rsaa = inputs[6]  
 READCOL, cov_coordfile, coverage_x, coverage_y, nlines=nlines, /silent
 READCOL, saasolutionfile, n, x, y, int, sint, vel, svel, fwhm, sfwhm, rms, resid, totchisq, dof, chisqred, AIC, window_l, window_u, /silent        
-            
+        
 ;------------------------------------------------------------------------------;
 ; BEGIN ANALYSIS
 ;------------------------------------------------------------------------------;
