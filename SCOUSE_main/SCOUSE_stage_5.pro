@@ -90,7 +90,7 @@ datadirectory = ''
 filename      = ''                                                          ; The data cube to be analysed
 fitsfile      = filename+'.fits'                                            ; fits extension
 vunit         = 1000.0                                                      ; if FITS header has units of m/s; conv from m/s to km/s
-iunit         =  1.0                                                        ; conv from jy/beam to mjy/beam ; set to 1 if not required.
+iunit         = 1.0                                                         ; conv from jy/beam to mjy/beam ; set to 1 if not required.
 velrange      = [0.0, 0.0]                                                  ; range over which to plot spectra
 SolnFile      = datadirectory+filename+'/STAGE_4/final_solns.dat'           ; The solution file
 OutFile       = datadirectory+filename+'/STAGE_5/check_spec_indxfile_1.dat' ; This needs to be updated
@@ -178,6 +178,6 @@ FUNCTION NUMBLOCKS, datadirectory, filename, val
   coordfile_coverage = datadirectory+filename+'/MISC/coords_coverage.dat'
   READCOL, coordfile_coverage, data, nlines=nlines, /silent   
   nblocks = nlines/val
-  nblocks = ROUND(nblocks)-1 
+  nblocks = ROUND(nblocks)
   RETURN, nblocks
 END

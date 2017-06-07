@@ -1,0 +1,15 @@
+; IDL Version 8.3, Mac OS X (darwin x86_64 m64)
+; Journal File for Jonathan@Jonathans-MBP-3
+; Working directory: /Users/Jonathan
+; Date: Wed Jun  7 17:06:53 2017
+ 
+;MRDFITS: Truncating unused dimensions
+;MRDFITS: Image array (6,21,1000)  Type=Real*4
+;Beginning analysis...
+;Block:    1 of    3
+; -1
+;Block:    2 of    3
+; -1
+;Block:    3 of    3
+; -1
+;      122.000 spectra checked in       0.32372102 minutes.

@@ -47,9 +47,9 @@ Compile_Opt idl2
 ; USER INPUT
 ;------------------------------------------------------------------------------;
 
-datadirectory = ''  
-filename      = ''               ; The data cube to be analysed
-fitsfile      = filename+'.fits' ; fits extension
+datadirectory =  ''  
+filename      =  ''               ; The data cube to be analysed
+fitsfile      =  filename+'.fits' ; fits extension
 
 ;------------------------------------------------------------------------------;
 ; FILE INPUT

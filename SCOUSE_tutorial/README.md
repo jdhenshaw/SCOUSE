@@ -40,6 +40,10 @@ function as it requires a reference location (see create_offsets). In the
 tutorial data, the reference location is under 'RA' and 'DEC' in the FITS
 header, but this is likely to be data specific.*
 
+**Note that a further option "/PIXELS" is also available - I strongly advise
+users make use of either of these two keywords in order to avoid problems with
+the output coordinates (see issues).**
+
 MAIN STAGES
 ===========
 

@@ -39,14 +39,14 @@ z_rms     = z
 
 ; Trim velocity according to input file
 IF inputs[1] NE 1000.0 AND inputs[0] NE -1000.0 THEN BEGIN
-  ID = WHERE(z GT inputs[0] AND z LT inputs[1])
+  ID = WHERE(z GE inputs[0] AND z LE inputs[1])
   z = z[MIN(ID):MAX(ID)]
   image = image[*,*,MIN(ID):MAX(ID)]
 endif
 
 ; Trim xaxis 
 IF inputs[3] NE 1000.0 AND inputs[2] NE -1000.0 THEN BEGIN
-  ID   = WHERE(x GT inputs[2] AND x LT inputs[3])
+  ID   = WHERE(x GE inputs[2] AND x LE inputs[3])
   x = x[MIN(ID):MAX(ID)]
   image = image[MIN(ID):MAX(ID),*,*]
   image_rms = image_rms[MIN(ID):MAX(ID),*,*]
@@ -54,7 +54,7 @@ ENDIF
 
 ; Trim yaxis
 IF inputs[5] NE 1000.0 AND inputs[4] NE -1000.0 THEN BEGIN
-  ID = WHERE(y GT inputs[4] AND y LT inputs[5])
+  ID = WHERE(y GE inputs[4] AND y LE inputs[5])
   y = y[MIN(ID):MAX(ID)]
   image = image[*,MIN(ID):MAX(ID),*]
   image_rms = image_rms[*,MIN(ID):MAX(ID),*]

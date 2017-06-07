@@ -1,2 +1,9 @@
-SCOUSE_stage_7
-;Time taken:    0.00034439961 minutes.
+; IDL Version 8.3, Mac OS X (darwin x86_64 m64)
+; Journal File for Jonathan@Jonathans-MBP-3
+; Working directory: /Users/Jonathan
+; Date: Wed Jun  7 17:06:20 2017
+ 
+; % FILE_COPY: Destination file already exists. File: /Users/Jonathan/Dropbox/Work/Code/GitHub/SCOUSE/SCOUSE_tutorial/n2h+10_37/STAGE_7/final_solns_updated.dat.backup.
+;Beginning analysis...
+/Users/Jonathan/Dropbox/Work/Code/GitHub/SCOUSE/SCOUSE_tutorial/n2h+10_37/MISC/stagesseven_log.dat
+;Time taken:    0.00041369994 minutes.

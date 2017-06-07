@@ -1,4 +1,8 @@
-SCOUSE_stage_6
+; IDL Version 8.3, Mac OS X (darwin x86_64 m64)
+; Journal File for Jonathan@Jonathans-MBP-3
+; Working directory: /Users/Jonathan
+; Date: Wed Jun  7 17:03:27 2017
+ 
 ;MRDFITS: Truncating unused dimensions
 ;MRDFITS: Image array (6,21,1000)  Type=Real*4
 ;Beginning analysis...
@@ -22,12 +26,6 @@ SCOUSE_stage_6
 ;Centroid:       0.000 +/-     0.000
 ;Linewidth:      0.000 +/-     0.000
 ;;------------------------------------------------------------------------------;
-;Reduced chi-Squared value:       1.29089
-;AIC value:                       185.606
-;Intensity:      0.818 +/-     0.017
-;Centroid:      37.431 +/-     0.013
-;Linewidth:      1.236 +/-     0.030
-;;------------------------------------------------------------------------------;
 ;;------------------------------------------------------------------------------;
 ;; INSTRUCTIONS: Choose one of the following...
 ;;
@@ -35,9 +33,71 @@ SCOUSE_stage_6
 ;; To accept a unique alternative: Enter available a-i
 ;; To refit the spectrum manually: Enter nothing
 ;;------------------------------------------------------------------------------;
-; b
-; % Type conversion error: Unable to convert given STRING to Long.
-;You have chosen to select an alternative solution
+; 
+;You have chosen to refit manually
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 37.4
+; 0.4
+; 1
+; 38.8
+; 0.4
+; 
+;Reduced chi-Squared value:       0.92072650
+;AIC value:                        137.83645
+; 
+;Intensity:      0.374 +/-     0.064
+;Centroid:      37.165 +/-     0.027
+;Linewidth:      0.575 +/-     0.087
+;Intensity:      0.606 +/-     0.050
+;Centroid:      37.586 +/-     0.050
+;Linewidth:      1.339 +/-     0.056
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 0.5
+; 
+;Reduced chi-Squared value:        1.2909834
+;AIC value:                        185.61935
+; 
+;Intensity:      0.818 +/-     0.017
+;Centroid:      37.431 +/-     0.013
+;Linewidth:      1.236 +/-     0.030
+; yes
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;No alternative solutions available.
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; 1
+;You have chosen to refit manually
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 0.5
+; 
+;Reduced chi-Squared value:        1.1077622
+;AIC value:                        160.15160
+; 
+;Intensity:      0.243 +/-     0.024
+;Centroid:      37.996 +/-     0.034
+;Linewidth:      0.714 +/-     0.081
+; yes
 ;;------------------------------------------------------------------------------;
 ;; CURRENT SOLUTION
 ;;------------------------------------------------------------------------------;
@@ -62,9 +122,27 @@ SCOUSE_stage_6
 ;; To accept a unique alternative: Enter available a-i
 ;; To refit the spectrum manually: Enter nothing
 ;;------------------------------------------------------------------------------;
-; a
-; % Type conversion error: Unable to convert given STRING to Long.
-;You have chosen to select an alternative solution
+; 
+;You have chosen to refit manually
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 34
+; 0.5
+; 1
+; 37
+; 0.5
+; 
+;Reduced chi-Squared value:        3.3722331
+;AIC value:                        471.24135
+; 
+;Intensity:      0.296 +/-     0.015
+;Centroid:      34.990 +/-     0.073
+;Linewidth:      2.242 +/-     0.188
+;Intensity:      0.433 +/-     0.019
+;Centroid:      37.418 +/-     0.039
+;Linewidth:      1.405 +/-     0.090
+; yes
 ;;------------------------------------------------------------------------------;
 ;; CURRENT SOLUTION
 ;;------------------------------------------------------------------------------;
@@ -93,12 +171,12 @@ SCOUSE_stage_6
 ;You have chosen to refit manually
 ; 2
 ;Entering guesses for average spectrum...
-; 1 34
-; 34
 ; 1
+; 35
+; 0.4
 ; 1
 ; 37
-; 1
+; 0.4
 ; 
 ;Reduced chi-Squared value:        2.5102775
 ;AIC value:                        354.01539
@@ -109,6 +187,51 @@ SCOUSE_stage_6
 ;Intensity:      0.471 +/-     0.016
 ;Centroid:      37.383 +/-     0.028
 ;Linewidth:      1.345 +/-     0.063
+; yes
+;;------------------------------------------------------------------------------;
+;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1.55934
+;AIC value:                       222.921
+;Intensity:      0.885 +/-     0.011
+;Centroid:      37.687 +/-     0.010
+;Linewidth:      1.612 +/-     0.024
+;;------------------------------------------------------------------------------;
+;; ALTERNATIVE SOLUTIONS
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1000.00
+;AIC value:                       1000.00
+;Intensity:      0.000 +/-     0.000
+;Centroid:       0.000 +/-     0.000
+;Linewidth:      0.000 +/-     0.000
+;;------------------------------------------------------------------------------;
+;;------------------------------------------------------------------------------;
+;; INSTRUCTIONS: Choose one of the following...
+;;
+;; To retain the current solution: Enter -1
+;; To accept a unique alternative: Enter available a-i
+;; To refit the spectrum manually: Enter nothing
+;;------------------------------------------------------------------------------;
+; 
+;You have chosen to refit manually
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 37.5
+; 0.3
+; 1
+; 38.5
+; 0.3
+; 
+;Reduced chi-Squared value:       0.97508528
+;AIC value:                        145.22925
+; 
+;Intensity:      0.919 +/-     0.013
+;Centroid:      37.627 +/-     0.014
+;Linewidth:      1.420 +/-     0.034
+;Intensity:      0.189 +/-     0.020
+;Centroid:      38.915 +/-     0.041
+;Linewidth:      0.698 +/-     0.096
 ; yes
 ;;------------------------------------------------------------------------------;
 ;; CURRENT SOLUTION
@@ -132,24 +255,32 @@ SCOUSE_stage_6
 ;Entering guesses for average spectrum...
 ; 1
 ; 38
-; 1
+; 3
 ; 
-;Reduced chi-Squared value:       0.83087007
-;AIC value:                        121.66360
+;Reduced chi-Squared value:       0.91609538
+;AIC value:                        133.50992
 ; 
-;Intensity:      0.248 +/-     0.044
-;Centroid:      38.212 +/-     0.024
-;Linewidth:      0.273 +/-     0.056
+;Intensity:      0.333 +/-     0.044
+;Centroid:      38.122 +/-     0.046
+;Linewidth:      0.718 +/-     0.109
 ; yes
 ;;------------------------------------------------------------------------------;
 ;; CURRENT SOLUTION
+;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1.11020
+;AIC value:                       160.491
+;Intensity:      0.293 +/-     0.012
+;Centroid:      37.253 +/-     0.034
+;Linewidth:      1.708 +/-     0.081
+;;------------------------------------------------------------------------------;
+;; ALTERNATIVE SOLUTIONS
 ;;------------------------------------------------------------------------------;
 ;Reduced chi-Squared value:       1000.00
 ;AIC value:                       1000.00
 ;Intensity:      0.000 +/-     0.000
 ;Centroid:       0.000 +/-     0.000
 ;Linewidth:      0.000 +/-     0.000
-;No alternative solutions available.
+;;------------------------------------------------------------------------------;
 ;;------------------------------------------------------------------------------;
 ;; INSTRUCTIONS: Choose one of the following...
 ;;
@@ -159,23 +290,46 @@ SCOUSE_stage_6
 ;;------------------------------------------------------------------------------;
 ; 
 ;You have chosen to refit manually
-; 0
+; 2
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 0.4
+; 1
+; 37.9
+; 0.3
 ; 
-;Reduced chi-Squared value:        1000.0000
-;AIC value:                        1000.0000
+;Reduced chi-Squared value:       0.90901861
+;AIC value:                        136.24418
 ; 
-;Intensity:      0.000 +/-     0.000
-;Centroid:       0.000 +/-     0.000
-;Linewidth:      0.000 +/-     0.000
+;Intensity:      0.266 +/-     0.013
+;Centroid:      37.170 +/-     0.044
+;Linewidth:      1.751 +/-     0.090
+;Intensity:      0.190 +/-     0.037
+;Centroid:      37.701 +/-     0.018
+;Linewidth:      0.189 +/-     0.045
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 0.4
+; 
+;Reduced chi-Squared value:        1.1100582
+;AIC value:                        160.47075
+; 
+;Intensity:      0.293 +/-     0.012
+;Centroid:      37.253 +/-     0.034
+;Linewidth:      1.708 +/-     0.081
 ; yes
 ;;------------------------------------------------------------------------------;
 ;; CURRENT SOLUTION
 ;;------------------------------------------------------------------------------;
-;Reduced chi-Squared value:      0.844110
-;AIC value:                       123.504
-;Intensity:      0.338 +/-     0.027
-;Centroid:      38.124 +/-     0.029
-;Linewidth:      0.721 +/-     0.067
+;Reduced chi-Squared value:      0.897550
+;AIC value:                       130.933
+;Intensity:      0.259 +/-     0.012
+;Centroid:      37.281 +/-     0.040
+;Linewidth:      1.828 +/-     0.095
 ;;------------------------------------------------------------------------------;
 ;; ALTERNATIVE SOLUTIONS
 ;;------------------------------------------------------------------------------;
@@ -197,12 +351,20 @@ SCOUSE_stage_6
 ;;------------------------------------------------------------------------------;
 ;; CURRENT SOLUTION
 ;;------------------------------------------------------------------------------;
+;Reduced chi-Squared value:       1.36876
+;AIC value:                       196.431
+;Intensity:      0.269 +/-     0.010
+;Centroid:      37.644 +/-     0.038
+;Linewidth:      2.155 +/-     0.091
+;;------------------------------------------------------------------------------;
+;; ALTERNATIVE SOLUTIONS
+;;------------------------------------------------------------------------------;
 ;Reduced chi-Squared value:       1000.00
 ;AIC value:                       1000.00
 ;Intensity:      0.000 +/-     0.000
 ;Centroid:       0.000 +/-     0.000
 ;Linewidth:      0.000 +/-     0.000
-;No alternative solutions available.
+;;------------------------------------------------------------------------------;
 ;;------------------------------------------------------------------------------;
 ;; INSTRUCTIONS: Choose one of the following...
 ;;
@@ -212,18 +374,24 @@ SCOUSE_stage_6
 ;;------------------------------------------------------------------------------;
 ; 
 ;You have chosen to refit manually
-; 1
+; 2
 ;Entering guesses for average spectrum...
 ; 1
-; 38
+; 37
+; 0.4
 ; 1
+; 39
+; 0.3
 ; 
-;Reduced chi-Squared value:       0.91609538
-;AIC value:                        133.50992
+;Reduced chi-Squared value:       0.96025833
+;AIC value:                        143.21278
 ; 
-;Intensity:      0.333 +/-     0.044
-;Centroid:      38.122 +/-     0.046
-;Linewidth:      0.718 +/-     0.109
+;Intensity:      0.310 +/-     0.013
+;Centroid:      37.415 +/-     0.036
+;Linewidth:      1.408 +/-     0.093
+;Intensity:      0.147 +/-     0.016
+;Centroid:      38.929 +/-     0.060
+;Linewidth:      0.886 +/-     0.137
 ; yes
 ;;------------------------------------------------------------------------------;
 ;; CURRENT SOLUTION
@@ -246,8 +414,34 @@ SCOUSE_stage_6
 ; 1
 ;Entering guesses for average spectrum...
 ; 1
-; 37
+; 38
+; 0.
+; 
+;Reduced chi-Squared value:        2.4118900
+;AIC value:                        341.42537
+; 
+;Intensity:      1.000 +/-    -0.000
+;Centroid:      38.000 +/-    -0.000
+;Linewidth:      0.000 +/-     0.000
+; 5
 ; 1
+;Entering guesses for average spectrum...
+; 1
+; 37
+; 0.4
+; 
+;Reduced chi-Squared value:        2.4118697
+;AIC value:                        341.42255
+; 
+;Intensity:     -0.011 +/-    -0.000
+;Centroid:      36.415 +/-**********
+;Linewidth:      0.021 +/-**********
+; 
+; 1
+;Entering guesses for average spectrum...
+; 1
+; 38
+; 0.5
 ; 
 ;Reduced chi-Squared value:       0.96486523
 ;AIC value:                        140.28893
@@ -257,9 +451,16 @@ SCOUSE_stage_6
 ;Linewidth:      0.822 +/-     0.082
 ; yes
 ;;-----------------------------------------------------------------------------;
-;TOTAL NUMBER OF POSITIONS REVISITED:                 8
-;PERCENTAGE NUMBER OF POSITIONS REVISITED:       6.34921
-;TOTAL NUMBER OF POSITIONS REFIT:                5.00000
-;PERCENTAGE NUMBER OF POSITIONS REFIT:           62.5000
+;TOTAL NUMBER OF POSITIONS REVISITED:                10
+;PERCENTAGE NUMBER OF POSITIONS REVISITED:       8.19672
+;TOTAL NUMBER OF POSITIONS REFIT:                9.00000
+;PERCENTAGE NUMBER OF POSITIONS REFIT:           90.0000
 ;;-----------------------------------------------------------------------------;
-;Time taken:        1.2812488 minutes.
+; % FILE_COPY: Destination file already exists.
+;              File: /Users/Jonathan/Dropbox/Work/Code/GitHub/SCOUSE/SCOUSE_tutorial/n2h+10_37/STAGE_6/alternative_solutions_1.dat.backup.
+;Beginning analysis...
+/Users/Jonathan/Dropbox/Work/Code/GitHub/SCOUSE/SCOUSE_tutorial/n2h+10_37/MISC/stagesseven_log.dat
+; % FILE_COPY: Destination file already exists. File: /Users/Jonathan/Dropbox/Work/Code/GitHub/SCOUSE/SCOUSE_tutorial/n2h+10_37/STAGE_7/final_solns_updated.dat.backup.
+;Beginning analysis...
+/Users/Jonathan/Dropbox/Work/Code/GitHub/SCOUSE/SCOUSE_tutorial/n2h+10_37/MISC/stagesseven_log.dat
+;Time taken:    0.00041408539 minutes.

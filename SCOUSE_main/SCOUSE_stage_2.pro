@@ -56,10 +56,10 @@ Compile_Opt idl2
 ; USER INPUT
 ;------------------------------------------------------------------------------;
 
-datadirectory = ''  
-filename      = ''                ; The data cube to be analysed
-fitsfile      = filename+'.fits'  ; fits extension
-vunit         = 1000.0            ; if FITS header has units of m/s; conv from m/s to km/s
+datadirectory =  ''  
+filename      =  ''               ; The data cube to be analysed
+fitsfile      =  filename+'.fits' ; fits extension
+vunit         =  1000.0           ; if FITS header has units of m/s; conv from m/s to km/s
 iunit         =  1.0              ; conv from jy/beam to mjy/beam ; set to 1 if not required.
 
 ;------------------------------------------------------------------------------;

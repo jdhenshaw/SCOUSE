@@ -206,10 +206,10 @@ CLOSE,  1
 ;   
 ;-----------------------------------------------------------------------------;
 
-image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA )              
+image  = FILE_READ( datadirectory, fitsfile, x=x_axis, y=y_axis, z=z_axis, header=HDR_DATA )      
 z_axis = z_axis/vunit
 data   = FILE_PREPARATION( image, x_axis, y_axis, z_axis, HDR_DATA, input_file, vunit, iunit, image_rms=data_rms, z_rms=z_axis_rms, header_new=HDR_NEW) 
-              
+
 ;==============================================================================;
 ; BEGIN ANALYSIS
 ;==============================================================================;

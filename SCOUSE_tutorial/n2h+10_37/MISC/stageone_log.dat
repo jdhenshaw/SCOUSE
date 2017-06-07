@@ -1,4 +1,8 @@
-SCOUSE_stage_1
+; IDL Version 8.3, Mac OS X (darwin x86_64 m64)
+; Journal File for Jonathan@Jonathans-MBP-3
+; Working directory: /Users/Jonathan
+; Date: Wed Jun  7 16:55:41 2017
+ 
 ;Number of spectra to fit manually:       19.0000
-;Number of spectra:                       126.000
-;Time taken:     0.0014629682 minutes.
+;Number of spectra:                       122.000
+;Time taken:     0.0026188175 minutes.
