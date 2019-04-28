@@ -11,9 +11,9 @@ SCOUSE is a spectral line fitting algorithm. The current version fits Gaussian
 files to spectral line emission. Please refer to
 [Henshaw et al. 2016](http://ukads.nottingham.ac.uk/abs/2016arXiv160103732H)
 for further information. Note that a Python version of SCOUSE now exists and
-can be found here: [scousepy](https://github.com/jdhenshaw/scousepy). While I
+can be found here: [scousepy](https://github.com/jdhenshaw/scousepy). **While I
 can continue to assist with the IDL version on an individual basis I will no
-longer be maintaining the code. 
+longer be maintaining this code.**
 
 <img src="images/Figure_cartoon.png"  alt="" width = "850" />
 
